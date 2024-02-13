@@ -1,23 +1,17 @@
 package client;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Map;
 import java.util.Set;
 
 public class Help {
-//    private static final String[] helpWords = {"look", "around", "observe", "inspect", "approach", "interact", "computer", "examine", "door", "read",
-//            "note", "check", "trashcan", "table", "inspect", "slime", "goo", "open", "take", "attack", "hit", "use", "interact", "discard",
-//            "throw", "inventory", "items", "unlock", "analyze", "help", "quit", "skip", "map"};
-
-
     public static void displayHelp() {
         String path = "./static/items.json";
+
         try {
             Gson gson = new Gson();
 
