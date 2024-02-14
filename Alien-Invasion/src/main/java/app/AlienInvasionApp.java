@@ -1,6 +1,7 @@
 package app;
 
 import client.*;
+import gameEngines.JsonWriter;
 import models.Player;
 import gameEngines.TextParser;
 
@@ -10,6 +11,7 @@ public class AlienInvasionApp {
     private final CharacterStatus characterStatus = new CharacterStatus();
     private final Player player = new Player();
     private boolean isGame = true;
+
     public void run() {
         initialize();
         CLS.clear();
@@ -34,6 +36,7 @@ public class AlienInvasionApp {
         player.setY(0);
         player.setCurrentLocation("Command Center");
         player.setHealth(100);
+        JsonWriter.resetLocationsJSON();
     }
 
     public boolean isGame() {
