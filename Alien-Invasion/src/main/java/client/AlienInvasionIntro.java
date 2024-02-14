@@ -3,7 +3,6 @@ package client;
 import java.io.IOException;
 
 public class AlienInvasionIntro {
-
     private static final int TypingDelayMs = 50;
 
     public static void welcome() throws InterruptedException, IOException {
@@ -40,7 +39,7 @@ public class AlienInvasionIntro {
         System.out.flush();
     }
 
-    public static void clearConsolePause(int ClearDelayMs) throws IOException, InterruptedException {
+    public static void clearConsolePause(int ClearDelayMs){
         try {
             Thread.sleep(ClearDelayMs);
         } catch (InterruptedException e) {
@@ -48,5 +47,4 @@ public class AlienInvasionIntro {
         }
         CLS.clear();
     }
-
 }

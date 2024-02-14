@@ -1,5 +1,3 @@
-import items.GetItems;
-import items.Inventory;
 import json.ItemsJSON;
 import org.junit.jupiter.api.Test;
 

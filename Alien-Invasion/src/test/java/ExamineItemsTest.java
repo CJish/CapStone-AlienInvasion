@@ -1,5 +1,3 @@
-import items.ExamineItems;
-
 class ExamineItemsTest {
 
     @org.junit.jupiter.api.Test
