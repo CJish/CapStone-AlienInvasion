@@ -1,29 +1,32 @@
-package text_parser;
+package gameEngines;
 
 import client.*;
 import items.DropItem;
 import items.ExamineItems;
 import items.GetItems;
-import items.Inventory;
 import json.SynonymsJson;
-
-import java.io.IOException;
+import models.Location;
+import models.Player;
 
 public class TextParser {
 
-    public static void textParser(String userInput) throws IOException {
+    public static void textParser(String userInput, Player player) {
 
         String[] cmd = userInput.split(" ");
 
         if (cmd.length > 1) {
             if (userInput.trim().equalsIgnoreCase("display inventory")) {
-                System.out.println(Inventory.getInventory());
-            }
-
-            else if (InvalidInput.checkValidInput(userInput)) {
-
+                System.out.println(player.getPlayerInventory());
+            } else if (InvalidInput.checkValidInput(userInput)) {
                 if (SynonymsJson.goSynonyms(cmd[0])) {
-                    Movement.processCommand(cmd[1]);
+                    Movement.processCommand(cmd[1], player);
+                    Location location = JsonReader.getLocationByAxis(player.getX(), player.getY());
+                    if(location != null) {
+                        player.setCurrentLocation(location.getLocation());
+                        PlayerLocation.displayCurrentLocation(location.getLocation());
+                    } else {
+                        PlayerLocation.displayCurrentLocation(player.getCurrentLocation());
+                    }
                 } else if (SynonymsJson.getSynonyms(cmd[0])) {
                     GetItems.isItemInteractable(userInput);
                 } else if (SynonymsJson.dropSynonyms(cmd[0])) {

@@ -40,7 +40,7 @@ public class AlienInvasionIntro {
         System.out.flush();
     }
 
-    public static void clearConsolePause(int ClearDelayMs) throws IOException, InterruptedException {
+    public static void clearConsolePause(int ClearDelayMs){
         try {
             Thread.sleep(ClearDelayMs);
         } catch (InterruptedException e) {
@@ -48,5 +48,4 @@ public class AlienInvasionIntro {
         }
         CLS.clear();
     }
-
 }

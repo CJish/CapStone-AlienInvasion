@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import text_parser.GameTextJSONParser;
+import gameEngines.GameTextJSONParser;
 
 class GameTextJSONParserTest {
 
