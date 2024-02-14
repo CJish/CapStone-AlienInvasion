@@ -1,68 +1,33 @@
 package client;
 
+import models.Player;
+
 import java.util.Scanner;
 
 public class Movement {
-
-    private static int x_Axis = 0;
-    private static int y_Axis = 0;
-    private Scanner scanner = new Scanner(System.in);
-
-    public static int getX_Axis() {
-        return x_Axis;
-    }
-
-    public static int getY_Axis() {
-        return y_Axis;
-    }
-
-
     //methods
-    public void startPosition() {
-        System.out.printf("Player position: (%s,%s)", getX_Axis(), getY_Axis());
+    public static void processCommand(String command, Player player) {
+            movePosition(command, player);
     }
 
-    public static void processCommand(String command) {
-
-//        if (command.startsWith("go")) {
-//            String direction = command.substring(3).trim(); // Extract direction from the command
-            movePosition(command);
-//        } else {
-//            System.out.println("Invalid command!");
-//        }
-    }
-
-    public static void movePosition(String direction) {
-//        System.out.println("Enter (north/south/west/east)");
+    public static void movePosition(String direction, Player player) {
+        int x = player.getX();
+        int y = player.getY();
         switch (direction.toLowerCase()) {
             case "north":
-                y_Axis++;
-//                    System.out.println("You are North");
+                player.setY(y + 1);
                 break;
             case "south":
-                y_Axis--;
-//                    System.out.println("You are South");
+                player.setY(y - 1);
                 break;
             case "east":
-                x_Axis++;
-//                    System.out.println("You are East");
+                player.setX(x + 1);
                 break;
             case "west":
-                x_Axis--;
-//                    System.out.println("You are West");
+                player.setX(x - 1);
                 break;
             default:
                 System.out.println("Invalid direction!");
-//                    return;
         }
-//            System.out.printf("Player moved to position: (%s,%s)", getX_Axis(), getY_Axis());
-    }
-
-    @Override
-    public String toString() {
-        return "client.Movement{" +
-                "x_Axis=" + getX_Axis() +
-                ", y_Axis=" + getY_Axis() +
-                '}';
     }
 }

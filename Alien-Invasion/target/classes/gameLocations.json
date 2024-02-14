@@ -1,52 +1,30 @@
 [
-  <<<<<<<
-  HEAD
   {
     "location": "Command Center",
-    "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n\nEastern Wall: The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.\n\nCentral Area: In the center of the room, a specialized command computer takes center stage. This powerful machine, adorned with blinking lights and illuminated buttons, serves as the nerve center for receiving and decoding radio transmissions from across the galaxy. It's a hub of communication and decision-making.\n\nSouth Wall: Along the southern wall, an information board hangs, displaying a dynamic stream of mission-critical updates, star charts, and real-time status reports. It provides the crew with essential data for their journey.\n\nComputer Desk: Adjacent to the command computer, a simple desk supports the vital machinery. On this desk, a discreet trashcan is positioned, serving as a practical and organized space for disposing of waste and maintaining cleanliness.",
-    "x": 32,
-    "y": 33
+    "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.",
+    "x": 0,
+    "y": 0,
+    "items": ["goo", "pencil"]
   },
   {
     "location": "Virtual Reality Chamber",
-    "description": "As you step closer to the entrance, the ambiance shifts dramatically. The lighting within this room is dimmed, creating an atmosphere of otherworldly mystique. Walls adorned with sleek, futuristic panels seem to pulse with faint, ethereal light.\n\nIn the center of the room, there stands a raised platform, upon which rests a high-tech console. Upon this console, you spot a state-of-the-art virtual reality headset and a matching body suit, both exuding an air of cutting-edge technology. The headset appears to promise a journey into a digital realm, while the body suit suggests an immersive experience that engages all your senses.\n\nThe walls of the chamber are adorned with abstract patterns, resembling a digital dreamscape. Large screens are embedded in the walls, suggesting that observers outside can monitor and enjoy the experience of the user within.\n\nThe room seems to invite you to step in and explore a world beyond the stars, a simulated adventure that transcends the boundaries of the physical ship and plunges you into realms uncharted.\n\nFor now, the headset and body suit sit silently, awaiting their next wearer. This virtual reality chamber holds the promise of transporting you to distant galaxies or realms of pure imagination. Its presence hints at a world of possibilities and adventures yet to be experienced within the TLG Alactica.",
+    "description": "As you step closer to the entrance, the ambiance shifts dramatically. The lighting within this room is dimmed, creating an atmosphere of otherworldly mystique. Walls adorned with sleek, futuristic panels seem to pulse with faint, ethereal light.\nIn the center of the room, there stands a raised platform, upon which rests a high-tech console. Upon this console, you spot a state-of-the-art virtual reality headset and a matching body suit, both exuding an air of cutting-edge technology. The headset appears to promise a journey into a digital realm, while the body suit suggests an immersive experience that engages all your senses.",
     "x": 2,
-    "y": 2
+    "y": 2,
+    "items": ["board", "shank"]
   },
   {
     "location": "Sleep Quarters",
-    "description": "The Sleep Quarters is a peaceful and comfortable space designed for the crew to rest and recharge during their long interstellar journeys. Rows of neatly arranged bunk beds line the room, each equipped with a personal storage locker.\n\nSoft ambient lighting fills the room, creating a serene atmosphere. The gentle hum of the ship's engines provides a soothing background noise, lulling the crew into a restful slumber.\n\nNear the entrance, a communal lounge area features comfortable chairs and a small library of books and entertainment options. It's a place for relaxation and leisure.\n\nThe Sleep Quarters offer a brief escape from the rigors of space travel, providing a tranquil haven for crew members to recuperate and prepare for their duties.",
+    "description": "The Sleep Quarters is a peaceful and comfortable space designed for the crew to rest and recharge during their long interstellar journeys. Rows of neatly arranged bunk beds line the room, each equipped with a personal storage locker.\nSoft ambient lighting fills the room, creating a serene atmosphere. The gentle hum of the ship's engines provides a soothing background noise, lulling the crew into a restful slumber.",
     "x": -2,
-    "y": -2
+    "y": -2,
+    "items": ["pillow", "apple"]
   },
   {
     "location": "Mystery Room",
-    "description": "The Mystery Room is a enigmatic and secretive chamber hidden deep within the TLG Alactica spaceship. Its purpose and function remain a mystery to most of the crew, and only a few are granted access to this enigmatic location.\n\nThe room is dimly lit, and the walls are covered in strange symbols and patterns. In the center of the room, a peculiar and ancient-looking artifact is displayed on a pedestal. It emits an eerie, pulsating glow that seems to defy the laws of physics.\n\nAround the artifact, various scientific instruments and monitors are arranged, suggesting that the room may have some connection to advanced research or experimentation.\n\nAs you step closer to the artifact, you can't help but feel a sense of curiosity and intrigue. The Mystery Room beckons you to uncover its secrets and unlock the mysteries hidden within the confines of the TLG Alactica spaceship.",
+    "description": "The Mystery Room is a enigmatic and secretive chamber hidden deep within the TLG Alactica spaceship. Its purpose and function remain a mystery to most of the crew, and only a few are granted access to this enigmatic location.\nAround the artifact, various scientific instruments and monitors are arranged, suggesting that the room may have some connection to advanced research or experimentation.\nAs you step closer to the artifact, you can't help but feel a sense of curiosity and intrigue. The Mystery Room beckons you to uncover its secrets and unlock the mysteries hidden within the confines of the TLG Alactica spaceship.",
     "x": 0,
-    "y": 2
-  },
-  {
-    "location": "Command Center",
-    "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n\nEastern Wall: The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.\n\nCentral Area: In the center of the room, a specialized command computer takes center stage. This powerful machine, adorned with blinking lights and illuminated buttons, serves as the nerve center for receiving and decoding radio transmissions from across the galaxy. It's a hub of communication and decision-making.\n\nSouth Wall: Along the southern wall, an information board hangs, displaying a dynamic stream of mission-critical updates, star charts, and real-time status reports. It provides the crew with essential data for their journey.\n\nComputer Desk: Adjacent to the command computer, a simple desk supports the vital machinery. On this desk, a discreet trashcan is positioned, serving as a practical and organized space for disposing of waste and maintaining cleanliness.",
-    "x": 32,
-    "y": 33
-  },
-  {
-    "location": "Virtual Reality Chamber",
-    "description": "As you step closer to the entrance, the ambiance shifts dramatically. The lighting within this room is dimmed, creating an atmosphere of otherworldly mystique. Walls adorned with sleek, futuristic panels seem to pulse with faint, ethereal light.\n\nIn the center of the room, there stands a raised platform, upon which rests a high-tech console. Upon this console, you spot a state-of-the-art virtual reality headset and a matching body suit, both exuding an air of cutting-edge technology. The headset appears to promise a journey into a digital realm, while the body suit suggests an immersive experience that engages all your senses.\n\nThe walls of the chamber are adorned with abstract patterns, resembling a digital dreamscape. Large screens are embedded in the walls, suggesting that observers outside can monitor and enjoy the experience of the user within.\n\nThe room seems to invite you to step in and explore a world beyond the stars, a simulated adventure that transcends the boundaries of the physical ship and plunges you into realms uncharted.\n\nFor now, the headset and body suit sit silently, awaiting their next wearer. This virtual reality chamber holds the promise of transporting you to distant galaxies or realms of pure imagination. Its presence hints at a world of possibilities and adventures yet to be experienced within the TLG Alactica.",
-    "x": 2,
-    "y": 2
-  },
-  {
-    "location": "Sleep Quarters",
-    "description": "The Sleep Quarters is a peaceful and comfortable space designed for the crew to rest and recharge during their long interstellar journeys. Rows of neatly arranged bunk beds line the room, each equipped with a personal storage locker.\n\nSoft ambient lighting fills the room, creating a serene atmosphere. The gentle hum of the ship's engines provides a soothing background noise, lulling the crew into a restful slumber.\n\nNear the entrance, a communal lounge area features comfortable chairs and a small library of books and entertainment options. It's a place for relaxation and leisure.\n\nThe Sleep Quarters offer a brief escape from the rigors of space travel, providing a tranquil haven for crew members to recuperate and prepare for their duties.",
-    "x": -2,
-    "y": -2
-  },
-  {
-    "location": "Mystery Room",
-    "description": "The Mystery Room is a enigmatic and secretive chamber hidden deep within the TLG Alactica spaceship. Its purpose and function remain a mystery to most of the crew, and only a few are granted access to this enigmatic location.\n\nThe room is dimly lit, and the walls are covered in strange symbols and patterns. In the center of the room, a peculiar and ancient-looking artifact is displayed on a pedestal. It emits an eerie, pulsating glow that seems to defy the laws of physics.\n\nAround the artifact, various scientific instruments and monitors are arranged, suggesting that the room may have some connection to advanced research or experimentation.\n\nAs you step closer to the artifact, you can't help but feel a sense of curiosity and intrigue. The Mystery Room beckons you to uncover its secrets and unlock the mysteries hidden within the confines of the TLG Alactica spaceship.",
-    "x": 0,
-    "y": 2
+    "y": 2,
+    "items": ["artifact", "key-card"]
   }
 ]

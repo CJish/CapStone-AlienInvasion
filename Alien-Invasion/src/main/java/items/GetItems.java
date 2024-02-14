@@ -30,8 +30,6 @@ public class GetItems {
             JsonObject itemsObject = commandObject.getAsJsonObject("items");
             Set<Map.Entry<String, JsonElement>> entrySet = itemsObject.entrySet();
             ArrayList<Integer> currentCoordinates = new ArrayList<>();
-            currentCoordinates.add(Movement.getX_Axis());
-            currentCoordinates.add(Movement.getY_Axis());
             for (Map.Entry<String, JsonElement> entry : entrySet) {
                 String itemName = entry.getKey();
                 if (itemName.equalsIgnoreCase(input[1]) && !itemName.equalsIgnoreCase("north")
@@ -55,7 +53,7 @@ public class GetItems {
             }System.out.println(message);
         } catch (IOException e) {
             e.printStackTrace();
-            }
+        }
 
         return isItem;
 
