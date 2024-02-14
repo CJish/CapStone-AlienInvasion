@@ -55,8 +55,6 @@ public class InvalidInput {
                     }
                 }
             }
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

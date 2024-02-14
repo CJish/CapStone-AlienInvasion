@@ -1,5 +1,8 @@
 package models;
 
+import gameEngines.JsonWriter;
+import utils.OptionChecker;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,15 +14,27 @@ public class Player {
     private List<String> playerInventory = new ArrayList<>();
     private int health;
 
-    public Player() {}
+    public Player() {
+    }
 
     // Methods
     public void addItemToInventory(String item) {
-        playerInventory.add(item);
+        if (!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
+            playerInventory.add(item);
+            JsonWriter.modifyLocation(currentLocation,item,false);
+        } else {
+            System.out.println("You already have this item");
+        }
+
     }
 
     public void removeItemFromInventory(String item) {
-        playerInventory.remove(item);
+        if(!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
+            System.out.println("You cant drop an item you dont have silly");
+        } else {
+            playerInventory.remove(item);
+            JsonWriter.modifyLocation(currentLocation,item,true);
+        }
     }
 
     // Getters and Setters

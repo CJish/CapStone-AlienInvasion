@@ -1,9 +1,12 @@
 package gameEngines;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import models.Item;
 import models.Location;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -46,5 +49,58 @@ public class JsonReader {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static Item readItemDescription(String myItem) {
+        try {
+            Type itemListType = new TypeToken<List<Item>>() {}.getType();
+            List<Item> itemList = gson.fromJson(new FileReader("./static/items.json"), itemListType);
+
+            for (Item item : itemList) {
+                if (item.getName().trim().equalsIgnoreCase(myItem.trim())) {
+                    return item;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String readVerbJson(List<String> userInput) {
+        try {
+            String myVerb = "";
+            String[] verbs = new String[]{"go", "talk", "get", "look", "fire", "inventory", "drop", "help", "quit", "cheat", "mute", "unmute"};
+            Gson gson = new Gson();
+            JsonObject json = gson.fromJson(new FileReader("./static/Verbs.json"), JsonObject.class);
+
+            int topIter = 0;
+            int iter = 0;
+            while (myVerb.equals("") && topIter < verbs.length * userInput.size()) {
+                if (iter == verbs.length) {
+                    iter = 0;
+                }
+                String verb = json.get(verbs[iter]).getAsString();
+                String[] synonyms = verb.split(" ");
+                for (String synonym : synonyms) {
+                    if (userInput.contains(synonym.toLowerCase())) {
+                        myVerb = verbs[iter];
+                        break;
+                    }
+                }
+                iter++;
+                topIter++;
+            }
+            if (myVerb.equals("")) {
+                return null;
+            }
+            else {
+                return myVerb;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
