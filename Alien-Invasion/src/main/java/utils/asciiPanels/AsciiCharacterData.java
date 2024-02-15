@@ -1,4 +1,4 @@
-package utils;
+package utils.asciiPanels;
 
 import java.awt.Color;
 

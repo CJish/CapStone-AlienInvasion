@@ -9,7 +9,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-package utils;
+package utils.asciiPanels;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,86 +23,22 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class AsciiPanel extends JPanel {
-    private static final long serialVersionUID = -4167851861147593092L;
 
-    /**
-     * The color black (pure black).
-     */
     public static Color black = new Color(0, 0, 0);
-
-    /**
-     * The color red.
-     */
     public static Color red = new Color(128, 0, 0);
-
-    /**
-     * The color green.
-     */
     public static Color green = new Color(0, 128, 0);
-
-    /**
-     * The color yellow.
-     */
     public static Color yellow = new Color(128, 128, 0);
-
-    /**
-     * The color blue.
-     */
     public static Color blue = new Color(0, 0, 128);
-
-    /**
-     * The color magenta.
-     */
     public static Color magenta = new Color(128, 0, 128);
-
-    /**
-     * The color cyan.
-     */
     public static Color cyan = new Color(0, 128, 128);
-
-    /**
-     * The color white (light gray).
-     */
     public static Color white = new Color(192, 192, 192);
-
-    /**
-     * A brighter black (dark gray).
-     */
     public static Color brightBlack = new Color(128, 128, 128);
-
-    /**
-     * A brighter red.
-     */
     public static Color brightRed = new Color(255, 0, 0);
-
-    /**
-     * A brighter green.
-     */
     public static Color brightGreen = new Color(0, 255, 0);
-
-    /**
-     * A brighter yellow.
-     */
     public static Color brightYellow = new Color(255, 255, 0);
-
-    /**
-     * A brighter blue.
-     */
     public static Color brightBlue = new Color(0, 0, 255);
-
-    /**
-     * A brighter magenta.
-     */
     public static Color brightMagenta = new Color(255, 0, 255);
-
-    /**
-     * A brighter cyan.
-     */
     public static Color brightCyan = new Color(0, 255, 255);
-
-    /**
-     * A brighter white (pure white).
-     */
     public static Color brightWhite = new Color(255, 255, 255);
 
     private Image offscreenBuffer;
@@ -111,7 +47,7 @@ public class AsciiPanel extends JPanel {
     private int heightInCharacters;
     private int charWidth = 9;
     private int charHeight = 16;
-    private String terminalFontFile = "cp437_9x16.png";
+    private String defaultFont = "cp437_9x16.png";
     private Color defaultBackgroundColor;
     private Color defaultForegroundColor;
     private int cursorX;
@@ -269,7 +205,7 @@ public class AsciiPanel extends JPanel {
 
         this.charHeight = font.getHeight();
         this.charWidth = font.getWidth();
-        this.terminalFontFile = font.getFontFilename();
+        this.defaultFont = font.getFontFilename();
 
         Dimension panelSize = new Dimension(charWidth * widthInCharacters, charHeight * heightInCharacters);
         setPreferredSize(panelSize);
@@ -329,8 +265,8 @@ public class AsciiPanel extends JPanel {
         widthInCharacters = width;
         heightInCharacters = height;
 
-        defaultBackgroundColor = black;
-        defaultForegroundColor = white;
+        defaultBackgroundColor = Colors.black;
+        defaultForegroundColor = Colors.white;
 
         characters = new AsciiCharacterData[widthInCharacters][heightInCharacters];
 
@@ -375,7 +311,7 @@ public class AsciiPanel extends JPanel {
 
     private void loadGlyphs() {
         try {
-            glyphSprite = ImageIO.read(AsciiPanel.class.getClassLoader().getResource(terminalFontFile));
+            glyphSprite = ImageIO.read(AsciiPanel.class.getClassLoader().getResource(defaultFont));
         } catch (IOException e) {
             System.err.println("loadGlyphs(): " + e.getMessage());
         }
