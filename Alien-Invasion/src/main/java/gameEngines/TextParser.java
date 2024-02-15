@@ -5,6 +5,7 @@ import json.SynonymsJson;
 import models.Item;
 import models.Location;
 import models.Player;
+import utils.UtilFunctions;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class TextParser {
                 System.out.println(player.getPlayerInventory());
             } else if (verb != null) {
                 if (SynonymsJson.goSynonyms(verb)) {
-                    Movement.processCommand(cmd[1], player);
+                    UtilFunctions.movePosition(cmd[1], player);
                     Location location = JsonReader.getLocationByAxis(player.getX(), player.getY());
                     if (location != null) {
                         player.setCurrentLocation(location.getLocation());
@@ -52,14 +53,14 @@ public class TextParser {
             switch (verb) {
                 case "quit":
                 case "q":
-                    QuitGame.quitGame();
+                    UtilFunctions.quitGame();
                     break;
                 case "help":
                 case "h":
-                    Help.displayHelp();
+                    UtilFunctions.displayHelp();
                     break;
                 case "map":
-                    Map.showMap();
+                    UtilFunctions.showMap();
                     break;
                 default:
                     System.out.println("Sorry that was an unrecognizable command.");

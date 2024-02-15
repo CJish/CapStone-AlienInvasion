@@ -1,9 +1,9 @@
-import client.Help;
+import utils.UtilFunctions;
 
 class HelpTest {
 
     @org.junit.jupiter.api.Test
     void displayHelp() {
-        Help.displayHelp();
+        UtilFunctions.displayHelp();
     }
 }

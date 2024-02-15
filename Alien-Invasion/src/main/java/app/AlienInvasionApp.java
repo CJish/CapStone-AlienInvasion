@@ -20,7 +20,7 @@ public class AlienInvasionApp {
 
         if (NewGame.gameStart()) {
             CLS.clear();
-            while (isGame) {
+            while (isGame()) {
                 AlienInvasionIntro.clearConsolePause(1000);
                 characterStatus.displayCharacterStatus(player);
                 System.out.println("What's your next move Commander?");

@@ -10,17 +10,17 @@ public class CharacterStatus {
 
         // Display character status
         System.out.println("Character Status:");
-        System.out.println("  Health: " + player.getHealth());
-        System.out.println("  Location: " + player.getCurrentLocation());
+        System.out.println(" Health: " + player.getHealth());
+        System.out.println(" Location: " + player.getCurrentLocation());
 
-        System.out.println("  items.Inventory: ");
+        System.out.println(" Inventory: ");
         for(String item : player.getPlayerInventory()) {
             System.out.println(item);
         }
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedTime = currentTime.format(formatter);
-        System.out.println("  Time: " + formattedTime);
+        System.out.println(" Time: " + formattedTime);
 
 
         // Display current location
