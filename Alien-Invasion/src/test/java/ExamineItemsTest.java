@@ -1,4 +1,5 @@
-class ExamineItemsTest {
+//class ExamineItemsTest {
+//
 
 //    @org.junit.jupiter.api.Test
 //    void examine() {
@@ -7,4 +8,5 @@ class ExamineItemsTest {
 //        System.out.println(ExamineItems.getInteractable());
 //        ExamineItems.examine("analyze board");
 //    }
-}
+//}
+

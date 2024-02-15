@@ -1,8 +1,3 @@
-import client.Movement;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class MovementTest {
 //    @Test
 //    void testInitialPosition() {

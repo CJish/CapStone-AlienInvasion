@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
-class DropItemTest {
-
+//import org.junit.jupiter.api.Test;
+//
+//import java.io.IOException;
+//
+//class DropItemTest {
+//
 //    @Test
 //    void dropItemShouldRemoveFromInventory() throws IOException {
 //        Inventory.setInventory("goo");
@@ -20,4 +20,5 @@ class DropItemTest {
 //        assertTrue(Inventory.getInventory().contains("goo"));
 //        assertTrue(Inventory.getInventory().contains("book"));
 //    }
-}
+//}
+
