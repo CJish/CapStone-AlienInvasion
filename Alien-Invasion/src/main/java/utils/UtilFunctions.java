@@ -3,6 +3,9 @@ package utils;
 import client.TitleScreen;
 import models.Player;
 
+import java.io.IOException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class UtilFunctions {
@@ -19,6 +22,7 @@ public class UtilFunctions {
             return;
         }
     }
+
     public static void movePosition(String direction, Player player) {
         int x = player.getX();
         int y = player.getY();
@@ -48,5 +52,40 @@ public class UtilFunctions {
 
     public static void showMap() {
         TitleScreen.displayAsciiArt(commandFilepath);
+    }
+
+    public static void displayCharacterStatus(Player player) {
+        LocalTime currentTime = LocalTime.now();
+
+        // Display character status
+        System.out.println("Character Status:");
+        System.out.println(" Health: " + player.getHealth());
+        System.out.println(" Location: " + player.getCurrentLocation());
+
+        System.out.println(" Inventory: ");
+        for(String item : player.getPlayerInventory()) {
+            System.out.println(item);
+        }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        String formattedTime = currentTime.format(formatter);
+        System.out.println(" Time: " + formattedTime);
+
+
+        // Display current location
+        System.out.println("Coordinates: (" + player.getX() + ", " + player.getY() + ")");
+    }
+
+    private static void doClear() throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    }
+
+    public static void clear() {
+        try {
+           doClear();
+        } catch (IOException | InterruptedException e) {
+            // Handle the exceptions here
+            e.printStackTrace(); // or any other appropriate action
+        }
     }
 }

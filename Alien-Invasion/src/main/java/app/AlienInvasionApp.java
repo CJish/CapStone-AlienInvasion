@@ -4,25 +4,25 @@ import client.*;
 import gameEngines.JsonWriter;
 import models.Player;
 import gameEngines.TextParser;
+import utils.UtilFunctions;
 
 import java.util.Scanner;
 
 public class AlienInvasionApp {
-    private final CharacterStatus characterStatus = new CharacterStatus();
     private final Player player = new Player();
     private boolean isGame = true;
 
     public void run() {
         initialize();
-        CLS.clear();
+        UtilFunctions.clear();
         Scanner scan = new Scanner(System.in);
         TitleScreen.displayAsciiArt("./static/title.txt");
 
         if (NewGame.gameStart()) {
-            CLS.clear();
+            UtilFunctions.clear();
             while (isGame()) {
                 AlienInvasionIntro.clearConsolePause(1000);
-                characterStatus.displayCharacterStatus(player);
+                UtilFunctions.displayCharacterStatus(player);
                 System.out.println("What's your next move Commander?");
                 System.out.print("> ");
                 String userInput = scan.nextLine().trim();

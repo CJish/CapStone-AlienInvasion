@@ -50,7 +50,7 @@ public class TextParser {
                 }
             }
         } else if (cmd.length == 1) {
-            switch (verb) {
+            switch (cmd[0]) {
                 case "quit":
                 case "q":
                     UtilFunctions.quitGame();
