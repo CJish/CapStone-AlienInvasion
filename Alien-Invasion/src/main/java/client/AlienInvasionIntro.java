@@ -1,5 +1,7 @@
 package client;
 
+import utils.UtilFunctions;
+
 import java.io.IOException;
 
 public class AlienInvasionIntro {
@@ -45,6 +47,6 @@ public class AlienInvasionIntro {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        CLS.clear();
+        UtilFunctions.clear();
     }
 }
