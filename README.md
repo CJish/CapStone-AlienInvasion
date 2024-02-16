@@ -1,2 +1,2 @@
-# PC-Team2
-Pre-Capstone Game for Team 2
+# Team 1 Capstone
+Capstone Project for Team 1
