@@ -1,0 +1,15 @@
+{
+  "general": [
+    "...",
+    "Hey there, traveler!",
+    "Need any help with your quest?",
+    "I've heard rumors of a hidden treasure nearby.",
+    "Watch out for the monsters in the forest!",
+    "The mayor is looking for someone to take on a dangerous mission.",
+    "I'm just here tending to my crops."
+  ],
+  "robot": [
+    "Try opening the door!",
+    "Beep Boop Beeeeeeep"
+  ]
+}
