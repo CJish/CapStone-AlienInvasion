@@ -1,5 +1,8 @@
 package gui;
 
+import client.PlayerLocation;
+import models.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -10,6 +13,7 @@ import java.io.IOException;
 
 public class GameDisplay extends JPanel implements KeyListener {
 
+    private final Player player;
     private JPanel gamePanel;
     private JTextArea mapArea;
     private int playerX, playerY = 0;
@@ -20,9 +24,10 @@ public class GameDisplay extends JPanel implements KeyListener {
     private String mapPath = "static/commandCenterMap.txt";
     private String[][] mapArray;
 
-    public GameDisplay() {
+    public GameDisplay(Player player) {
         addKeyListener(this);
         this.setFocusable(true);
+        this.player = player;
     }
 
     @Override
@@ -59,10 +64,10 @@ public class GameDisplay extends JPanel implements KeyListener {
 
         // messages placeholder
         g.setFont(arialSubtitle);
-        g.drawString("CURRENT LOCATION", 350, 790);
+        g.drawString(player.getCurrentLocation(), 350, 790);
         g.drawString("MESSAGES", 225, 830);
         g.setFont(arialSubtext);
-        g.drawString("We can add messages here", 250, 860);
+        g.drawString(PlayerLocation.displayCurrentLocation(player.getCurrentLocation()), 250, 860);
         g.drawString("and more here if they need to span more than one line", 250, 880);
 
         // inventory
