@@ -7,133 +7,85 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class GameDisplay extends JPanel implements KeyListener {
 
-    private final Player player;
-    private JPanel gamePanel;
-    private JTextArea mapArea;
-    private int playerX, playerY = 0;
-    private Font arialTitle = new Font("arial", Font.BOLD, 40);
-    private Font arialSubtext = new Font("arial", Font.PLAIN, 15);
-    private Font arialSubtitle = new Font("arial", Font.PLAIN, 25);
-    private Font courierMap = new Font("courier", Font.PLAIN, 10);
-    private String mapPath = "static/commandCenterMap.txt";
-    private String[][] mapArray;
-
     public GameDisplay(Player player) {
+        setPreferredSize(new Dimension(1024, 768));
+        setBackground(Color.BLACK);
+        setFocusable(true);
         addKeyListener(this);
-        this.setFocusable(true);
-        this.player = player;
+
+        initializeComponents(player);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        repaint();
-        revalidate();
+    private void initializeComponents(Player player) {
+        setLayout(null); // We'll use absolute positioning
 
-        /*
-        The background, player status, messages, inventory, needs to be a transparent layer
-        that's overlayed on top of the playscreen which holds the map and handles player movement
-         */
-        //Background
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, 1024, 1024);
-        g.setColor(Color.WHITE);
-        g.drawRoundRect(5, 5, 1000, 750, 5, 5); // main screen area
-        g.drawRoundRect(5, 760, 200, 200, 5, 5); // player status
-        g.drawRoundRect(214, 760, 590, 200, 5, 5); // messages & location
-        g.drawRoundRect(814, 760, 190, 200, 5, 5); // inventory
+        // Main screen area
+        JPanel mainScreenPanel = new JPanel();
+        mainScreenPanel.setBounds(5, 5, 1000, 750);
+        mainScreenPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        mainScreenPanel.setBackground(Color.DARK_GRAY);
+        add(mainScreenPanel);
 
-        // prints the title portion
-        g.setFont(arialTitle);
-        g.drawString("Alien Invasion", 600, 70);
-        g.setFont(arialSubtext);
-        g.drawString("Some Text Here", 600, 150);
-        // put messages somewhere in the x: 250, y 790 range
+        // Player status panel
+        JPanel playerStatusPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        playerStatusPanel.setBounds(5, 760, 200, 200);
+        playerStatusPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        playerStatusPanel.setBackground(Color.LIGHT_GRAY);
+        add(playerStatusPanel);
 
-        // player status
-        g.setFont(arialSubtitle);
-        g.drawString("Player Status:", 25, 790);
-        g.setFont(arialSubtext);
-        g.drawString("HP etc", 25, 815);
+        // Messages & location panel
+        JPanel messagesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        messagesPanel.setBounds(214, 760, 590, 200);
+        messagesPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        messagesPanel.setBackground(Color.LIGHT_GRAY);
+        add(messagesPanel);
 
-        // messages placeholder
-        g.setFont(arialSubtitle);
-        g.drawString(player.getCurrentLocation(), 350, 790);
-        g.drawString("MESSAGES", 225, 830);
-        g.setFont(arialSubtext);
-        g.drawString(PlayerLocation.displayCurrentLocation(player.getCurrentLocation()), 250, 860);
-        g.drawString("and more here if they need to span more than one line", 250, 880);
+        // Inventory panel
+        JPanel inventoryPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        inventoryPanel.setBounds(814, 760, 190, 200);
+        inventoryPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        inventoryPanel.setBackground(Color.LIGHT_GRAY);
+        add(inventoryPanel);
 
-        // inventory
-        g.setFont(arialSubtitle);
-        g.drawString("INVENTORY", 830, 790);
+        // Title Label
+        JLabel titleLabel = new JLabel("Player Status");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setBounds(350, 70, 300, 50);
+        playerStatusPanel.add(titleLabel);
 
-        // input field
-        JTextField inputField = new JTextField();
+        // Player Status Label
+        JLabel playerStatusLabel = new JLabel("Alien Invasion");
+        playerStatusLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        playerStatusLabel.setForeground(Color.WHITE);
+        playerStatusLabel.setBounds(350, 70, 300, 50);
+        mainScreenPanel.add(playerStatusLabel);
 
-        // map from Resources/commandCenterMap.txt
-        g.setFont(arialSubtext);
-        mapArray = buildMap(mapPath);
+        // Inventory Label
+        JLabel inventoryLabel = new JLabel("Inventory");
+        inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        inventoryLabel.setForeground(Color.WHITE);
+        inventoryLabel.setBounds(350, 70, 300, 50);
+        inventoryPanel.add(inventoryLabel);
 
-        int startX = 25;
-        int startY = 50;
-        // Array[y][x]
-        for (int y = 0; y < mapArray.length; y++) { // go through each row
-            for (int x = 0; x < mapArray[y].length; x++) {
-                g.drawString(mapArray[y][x], startX, startY);
-                startX += 12;
-            }
-            startY += 15;
-            startX = 25;
-        }
+        // Message Label
+        JLabel textLabel = new JLabel("Messages");
+        textLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        textLabel.setForeground(Color.WHITE);
+        messagesPanel.add(textLabel); // Add to messagesPanel
     }
 
-    private String[][] buildMap(String filePath)  {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            int numRows = 0;
-            int numCols = 0;
-            String line;
-            while ((line = reader.readLine()) != null) {
-                numRows++;
-                numCols = Math.max(numCols, line.length());
-            }
-            String[][] buildMapArray = new String[numRows][numCols]; // String[y][x] coordinates
-            reader.close();
-            BufferedReader newReader = new BufferedReader(new FileReader(filePath));
 
-            int y = 0;
-            while ((line = newReader.readLine()) != null) { // reads line by line
-                for (int x = 0; x < line.length(); x++) { // for the x position
-                    buildMapArray[y][x] = String.valueOf(line.charAt(x));
-                }
-                for (int x = line.length(); x < numCols; x++) { // pad so all lines have the same number of chars
-                    buildMapArray[y][x] = " ";
-                }
-                y++;
-            }
-            return buildMapArray;
-
-        } catch (IOException e){
-            System.out.println("gui > GameDisplay > buildMap ERROR: file not found");
-            return null;
-        }
-    }
 
     @Override
-    public void keyPressed(KeyEvent arg0) {
-
-    }
+    public void keyPressed(KeyEvent e) {}
 
     @Override
-    public void keyReleased(KeyEvent arg0) {}
+    public void keyReleased(KeyEvent e) {}
 
     @Override
-    public void keyTyped(KeyEvent arg0) {}
-
+    public void keyTyped(KeyEvent e) {}
 }
