@@ -3,6 +3,8 @@ package utils;
 import client.TitleScreen;
 import models.Player;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -52,6 +54,14 @@ public class UtilFunctions {
 
     public static void showMap() {
         TitleScreen.displayAsciiArt(commandFilepath);
+    }
+
+    // creates a panel for display
+    public static JPanel createColoredPanel(Color color, int x, int y, int width, int height) {
+        JPanel panel = new JPanel();
+        panel.setBackground(color);
+        panel.setBounds(x, y, width, height);
+        return panel;
     }
 
     public static void displayCharacterStatus(Player player) {
