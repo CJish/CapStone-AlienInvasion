@@ -16,6 +16,7 @@ import java.io.IOException;
 import static utils.UtilFunctions.createColoredPanel;
 
 public class MainDisplay extends JFrame implements KeyListener {
+    // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player) throws IOException {
         GameDisplay gameDisplay = new GameDisplay(player);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
