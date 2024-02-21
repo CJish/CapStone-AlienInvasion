@@ -6,10 +6,12 @@ import models.Player;
 import javax.swing.*;
 import javax.swing.text.Style;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public abstract class AbstractPanelCreator extends JPanel {
+public abstract class AbstractPanelCreator extends JPanel implements KeyListener {
 
-    private String jLabelString;// = "Messages";
+    private final String jLabelString;// = "Messages";
 
     public AbstractPanelCreator(String thisLabel) {
         this.jLabelString = thisLabel;
@@ -30,7 +32,7 @@ public abstract class AbstractPanelCreator extends JPanel {
      or you can explicitly set it setBackground(Color.BLACK)
      */
 
-    private void customizePanel(int x, int y, int width, int height) {
+    public void customizePanel(int x, int y, int width, int height) {
         new FlowLayout(FlowLayout.CENTER);
         setBounds(x, y, width, height);
         setBorder(BorderFactory.createLineBorder(Color.WHITE));
@@ -38,18 +40,30 @@ public abstract class AbstractPanelCreator extends JPanel {
     }
 
     // you'll have to @Override if you want to change these
-    private JLabel addPanelTitleLabel(String labelString) {
-        JLabel thisLabel = new JLabel(jLabelString);
+    public JLabel addPanelTitleLabel() {
+        JLabel thisLabel = new JLabel(getjLabelString());
         thisLabel.setFont(new Font("Arial", Font.BOLD, 20));
         thisLabel.setForeground(Color.WHITE);
         return thisLabel;
     }
 
     public JPanel newPanel(Player player, int x, int y, int width, int height) {
-//        this.player = player;
         this.customizePanel(x, y, width, height);
-        this.add(addPanelTitleLabel(jLabelString));
+        this.add(addPanelTitleLabel());
         this.repaint();
         return this;
     }
+
+    public String getjLabelString() {
+        return jLabelString;
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 }

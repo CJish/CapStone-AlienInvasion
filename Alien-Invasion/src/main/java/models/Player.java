@@ -1,5 +1,7 @@
 package models;
 
+import Interfaces.ChangeListener;
+import Interfaces.InventoryChangeListener;
 import gameEngines.JsonWriter;
 import utils.OptionChecker;
 
@@ -7,14 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-
+    private ChangeListener changeListener;
+    private InventoryChangeListener inventoryChangeListener;
     private int x;
     private int y;
     private String currentLocation;
     private List<String> playerInventory = new ArrayList<>();
     private int health;
 
-    public Player() {
+    public Player() {}
+
+    public void setChangeListener(ChangeListener listener) {
+        this.changeListener = listener;
+    }
+    public void setInventoryChangeListener(InventoryChangeListener inventoryChangeListener) {
+        this.inventoryChangeListener = inventoryChangeListener;
     }
 
     // Methods
@@ -22,6 +31,9 @@ public class Player {
         if (!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
             playerInventory.add(item);
             JsonWriter.modifyLocation(currentLocation,item,false);
+            if (changeListener != null) {
+                inventoryChangeListener.onInventoryChange(playerInventory);
+            }
         } else {
             System.out.println("You already have this item");
         }
@@ -34,6 +46,9 @@ public class Player {
         } else {
             playerInventory.remove(item);
             JsonWriter.modifyLocation(currentLocation,item,true);
+            if (changeListener != null) {
+                inventoryChangeListener.onInventoryChange(playerInventory);
+            }
         }
     }
 
@@ -60,6 +75,9 @@ public class Player {
 
     public void setCurrentLocation(String currentLocation) {
         this.currentLocation = currentLocation;
+        if (changeListener != null) {
+            changeListener.onLocationChanged(currentLocation);
+        }
     }
 
     public List<String> getPlayerInventory() {
