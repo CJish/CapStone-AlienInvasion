@@ -3,6 +3,7 @@ package app;
 import client.*;
 import gameEngines.JsonWriter;
 import gui.MainDisplay;
+import gui.components.MessagesPanel;
 import models.Player;
 import gameEngines.TextParser;
 import utils.UtilFunctions;
