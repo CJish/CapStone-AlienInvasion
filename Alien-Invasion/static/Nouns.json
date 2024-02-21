@@ -21,6 +21,19 @@
     "ALIEN MINION",
     "ALIEN SOLDIER",
     "ALIEN OFFICER",
-    "ALIEN QUEEN"
+    "ALIEN QUEEN",
+    "Command Center",
+    "Virtual Reality Chamber",
+    "Sleep Quarters",
+    "Mystery Room",
+    "artifact",
+    "key-card",
+    "pillow",
+    "apple",
+    "board",
+    "shank",
+    "goo",
+    "pencil"
+
   ]
 }
