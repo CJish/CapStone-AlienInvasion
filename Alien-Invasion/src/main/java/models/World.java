@@ -14,7 +14,7 @@ public class World {
         this.tiles = tiles;
         this.width = tiles.length;
         this.height = tiles[0].length;
-//        this.creatures = new ArrayList();
+
     }
 
     // checks if the passed x, y coords are in bounds
