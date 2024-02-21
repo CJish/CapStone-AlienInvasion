@@ -37,11 +37,11 @@ public class GameDisplay extends JPanel implements KeyListener {
         add(playerStatusPanel);
 
         // Messages & location panel
-        JPanel messagesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        messagesPanel.setBounds(214, 760, 590, 200);
-        messagesPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        messagesPanel.setBackground(Color.LIGHT_GRAY);
-        add(messagesPanel);
+//        JPanel messagesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+//        messagesPanel.setBounds(214, 760, 590, 200);
+//        messagesPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+//        messagesPanel.setBackground(Color.LIGHT_GRAY);
+//        add(messagesPanel);
 
         // Inventory panel
         JPanel inventoryPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -72,10 +72,10 @@ public class GameDisplay extends JPanel implements KeyListener {
         inventoryPanel.add(inventoryLabel);
 
         // Message Label
-        JLabel textLabel = new JLabel("Messages");
-        textLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        textLabel.setForeground(Color.WHITE);
-        messagesPanel.add(textLabel); // Add to messagesPanel
+//        JLabel textLabel = new JLabel("Messages");
+//        textLabel.setFont(new Font("Arial", Font.BOLD, 20));
+//        textLabel.setForeground(Color.WHITE);
+//        messagesPanel.add(textLabel); // Add to messagesPanel
     }
 
 

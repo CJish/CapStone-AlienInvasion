@@ -20,6 +20,8 @@ public class TextParser {
 
         String verb = JsonReader.readVerbJson(commands);
 
+
+        System.out.println(verb);
         if (cmd.length > 1) {
             if (userInput.trim().equalsIgnoreCase("display inventory")) {
                 System.out.println(player.getPlayerInventory());
