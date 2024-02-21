@@ -3,6 +3,7 @@ package gameEngines;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import gameEngines.supportengine.Nouns;
 import models.Item;
 import models.Location;
 
@@ -102,5 +103,20 @@ public class JsonReader {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String readNounJson(List<String> userInput) {
+        try {
+            Nouns nouns = gson.fromJson(new FileReader("static/Nouns.json"), Nouns.class);
+            for (String word : userInput) {
+                if (nouns.getNouns().contains(word.toLowerCase().trim())) {
+                    return word;
+                }
+            }
+            return null;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
