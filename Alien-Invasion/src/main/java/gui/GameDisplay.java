@@ -1,9 +1,11 @@
 package gui;
 
+import gameEngines.JsonReader;
 import gui.components.InventoryPanel;
 import gui.components.MapScreenPanel;
 import gui.components.MessagesPanel;
 import gui.components.PlayerStatusPanel;
+import models.Location;
 import models.Player;
 
 import javax.swing.*;
@@ -34,15 +36,15 @@ public class GameDisplay extends JPanel implements KeyListener {
 
         // Messages panel
         MessagesPanel messagesPanel = new MessagesPanel("Messages: ");
-        messagesPanel = (MessagesPanel) messagesPanel.newPanel(player, 214,760, 590,200); // Cast the panel to MessagesPanel
+        messagesPanel.newPanel(player, 214,760, 590,200);
         add(messagesPanel);
         player.setChangeListener(messagesPanel);
 
         // Inventory panel
         InventoryPanel inventoryPanel = new InventoryPanel("Inventory: ");
-        inventoryPanel = (InventoryPanel) inventoryPanel.newPanel(player, 814, 760, 190, 200); // Cast the panel to InventoryPanel
+        inventoryPanel.newPanel(player, 814, 760, 190, 200);
         add(inventoryPanel);
-        player.setChangeListener(inventoryPanel);
+        player.setInventoryChangeListener(inventoryPanel);
     }
 
 

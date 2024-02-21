@@ -53,9 +53,4 @@ public class MessagesPanel extends AbstractPanelCreator implements ChangeListene
     public void onLocationChanged(String newLocation) {
         updateLocation(newLocation);
     }
-
-    @Override
-    public void onInventoryChange(List<String> inventory) {
-        //Do Nothing with this, it must be present via the interface
-    }
 }

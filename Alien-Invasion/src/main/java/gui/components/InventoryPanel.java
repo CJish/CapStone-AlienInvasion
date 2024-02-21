@@ -1,6 +1,7 @@
 package gui.components;
 
 import Interfaces.ChangeListener;
+import Interfaces.InventoryChangeListener;
 import gui.AbstractPanelCreator;
 import models.Item;
 import models.Player;
@@ -12,7 +13,7 @@ import java.util.List;
 // see the AbstractPanelCreator class for instructions
 // on how to modify this class's properties
 // InventoryPanel.java
-public class InventoryPanel extends AbstractPanelCreator implements ChangeListener {
+public class InventoryPanel extends AbstractPanelCreator implements InventoryChangeListener {
     private JLabel titleLabel;
 
     public InventoryPanel(String thisLabel) {
@@ -31,11 +32,6 @@ public class InventoryPanel extends AbstractPanelCreator implements ChangeListen
         updateInventory(player.getPlayerInventory());
 
         return panel;
-    }
-
-    @Override
-    public void onInventoryChange(List<String> inventory) {
-        updateInventory(inventory);
     }
 
     private void updateInventory(List<String> inventory) {
@@ -61,7 +57,7 @@ public class InventoryPanel extends AbstractPanelCreator implements ChangeListen
     }
 
     @Override
-    public void onLocationChanged(String newLocation) {
-        // Do nothing, not needed in this class
+    public void onInventoryChange(List<String> inventory) {
+        updateInventory(inventory);
     }
 }

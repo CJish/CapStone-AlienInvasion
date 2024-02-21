@@ -6,8 +6,6 @@ import models.Location;
 // nested functions within class for encapsulation purposes
 // also to ensure class has full control over how data is accessed/modified
 public class PlayerLocation {
-
-
     public static String displayCurrentLocation(String locationName) {
         Location currentLocation = JsonReader.getLocationByName(locationName);
         if (currentLocation != null) {
