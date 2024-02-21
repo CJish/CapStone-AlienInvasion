@@ -22,7 +22,7 @@ public class MainDisplay extends JFrame implements KeyListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
         int windowWidth = alienSoldierBufferedImg.getWidth();
-        int windowHeight = alienSoldierBufferedImg.getHeight();
+        int windowHeight = alienSoldierBufferedImg.getHeight() + 10;
         setSize(windowWidth, windowHeight);
         setLayout(new BorderLayout());
 

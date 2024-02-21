@@ -1,12 +1,10 @@
 package gui;
 
 import gameEngines.JsonReader;
-import gui.components.InventoryPanel;
-import gui.components.MapScreenPanel;
-import gui.components.MessagesPanel;
-import gui.components.PlayerStatusPanel;
+import gui.components.*;
 import models.Location;
 import models.Player;
+import utils.DisplayMethodsGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,19 +28,23 @@ public class GameDisplay extends JPanel implements KeyListener {
         JPanel mapScreenPanel = new MapScreenPanel("").newPanel(player, 5, 5, 1000, 750);
         add(mapScreenPanel);
 
+        JPanel userInputPanel = new UserInputPanel("Your command: ").newPanel(player, 5, 760, 1000, 26 );
+        DisplayMethodsGUI.GUItextInput(userInputPanel, player, 90);
+        add(userInputPanel);
+
         // Player status panel
-        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 5,760,200,200);
+        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 5,791,200,200);
         add(playerStatusPanel);
 
         // Messages panel
         MessagesPanel messagesPanel = new MessagesPanel("Messages: ");
-        messagesPanel.newPanel(player, 214,760, 590,200);
+        messagesPanel.newPanel(player, 214,791, 590,200);
         add(messagesPanel);
         player.setChangeListener(messagesPanel);
 
         // Inventory panel
         InventoryPanel inventoryPanel = new InventoryPanel("Inventory: ");
-        inventoryPanel.newPanel(player, 814, 760, 190, 200);
+        inventoryPanel.newPanel(player, 814, 791, 190, 200);
         add(inventoryPanel);
         player.setInventoryChangeListener(inventoryPanel);
     }
