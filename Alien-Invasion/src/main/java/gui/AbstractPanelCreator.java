@@ -15,7 +15,6 @@ public abstract class AbstractPanelCreator extends JPanel implements KeyListener
 
     public AbstractPanelCreator(String thisLabel) {
         this.jLabelString = thisLabel;
-
     }
 
     /*
