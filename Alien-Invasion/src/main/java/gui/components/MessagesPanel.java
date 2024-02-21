@@ -9,19 +9,18 @@ import java.awt.*;
 
 public class MessagesPanel extends AbstractPanelCreator {
 
-    String messageLabelString = "Messages";
 
     //TODO: add message specific text here
     // like we'll have to take the message and chop it up so that it fits
     // within the alloted frame
+
+    public MessagesPanel(String thisLabel) {
+        super(thisLabel);
+    }
 
     @Override // this is just for messing around
     public void setBackground(Color bg) {
         super.setBackground(Color.BLACK);
     }
 
-    @Override // I F*d something up here, can't remember how to use a setter - CJ
-    public void setjLabelString(String jLabelString) {
-        this.setjLabelString(messageLabelString);
-    }
 }
