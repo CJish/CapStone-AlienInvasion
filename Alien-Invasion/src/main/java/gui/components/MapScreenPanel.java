@@ -76,6 +76,4 @@ public class MapScreenPanel extends AbstractPanelCreator {
             return null;
         }
     }
-
-
 }
