@@ -9,7 +9,10 @@ import javax.swing.*;
 // on how to modify this class's properties
 public class PlayerStatusPanel extends AbstractPanelCreator {
 
-    JLabel playerStatusLabel = new JLabel("Player Status");
+
+    public PlayerStatusPanel(String thisLabel) {
+        super(thisLabel);
+    }
 
     private void customizePlayerStatusJLabel() {
         //TODO: fill this out with panel-specific logic and add a JLabel

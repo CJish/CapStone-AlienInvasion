@@ -9,11 +9,12 @@ import java.awt.*;
 
 public abstract class AbstractPanelCreator extends JPanel {
 
-    private Player player;
-    private JLabel jLabel;
     private String jLabelString;// = "Messages";
 
+    public AbstractPanelCreator(String thisLabel) {
+        this.jLabelString = thisLabel;
 
+    }
 
     /*
     Sets a common base for the panels that will be displayed as part of the GameDisplay
@@ -37,26 +38,18 @@ public abstract class AbstractPanelCreator extends JPanel {
     }
 
     // you'll have to @Override if you want to change these
-    private JLabel addPanelTitleLabel() {
-        jLabel = new JLabel(jLabelString);
-        jLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        jLabel.setForeground(Color.WHITE);
-        return jLabel;
+    private JLabel addPanelTitleLabel(String labelString) {
+        JLabel thisLabel = new JLabel(jLabelString);
+        thisLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        thisLabel.setForeground(Color.WHITE);
+        return thisLabel;
     }
 
     public JPanel newPanel(Player player, int x, int y, int width, int height) {
-        this.player = player;
+//        this.player = player;
         this.customizePanel(x, y, width, height);
-        this.add(addPanelTitleLabel());
+        this.add(addPanelTitleLabel(jLabelString));
         this.repaint();
         return this;
-    }
-
-    protected void setjLabelString(String jLabelString) {
-        this.jLabelString = jLabelString;
-    }
-
-    public String getjLabelString() {
-        return jLabel.getText();
     }
 }

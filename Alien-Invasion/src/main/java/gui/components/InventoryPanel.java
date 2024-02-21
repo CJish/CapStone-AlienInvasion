@@ -7,5 +7,7 @@ import gui.AbstractPanelCreator;
 public class InventoryPanel extends AbstractPanelCreator {
 
 
-
+    public InventoryPanel(String thisLabel) {
+        super(thisLabel);
+    }
 }
