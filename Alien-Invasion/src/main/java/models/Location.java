@@ -9,6 +9,7 @@ public class Location {
    private String location; // location name
    private String description;
    private List<String> items = new ArrayList<>();
+   private List<String> characters = new ArrayList<>();
 
     public Location() {}
 
@@ -57,5 +58,13 @@ public class Location {
 
     public void setItems(List<String> items) {
         this.items = items;
+    }
+
+    public List<String> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(List<String> characters) {
+        this.characters = characters;
     }
 }
