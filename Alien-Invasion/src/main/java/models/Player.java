@@ -14,7 +14,8 @@ public class Player {
     private ChangeListener changeListener;
     private InventoryChangeListener inventoryChangeListener;
 
-    // these are used for the player's starting location
+    // these are used for the player's current location
+    // starting location is set in AlienInvasionApp
     private int x; // player's location
     private int y; // player's location
     private String currentLocation;
