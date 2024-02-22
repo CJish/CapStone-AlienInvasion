@@ -2,8 +2,7 @@ package models;
 
 import java.util.List;
 
-public class NpcFactory {
-
+public class Npc {
     private String name;
     private List<String> dialogue;
     private String graphic;
@@ -12,7 +11,7 @@ public class NpcFactory {
     private int health;
 
     // constructor
-    public NpcFactory(String name, List<String> dialogue, String graphic, String death, String alignment, int health) {
+    public Npc(String name, List<String> dialogue, String graphic, String death, String alignment, int health) {
         this.setName(name);
         this.setDialogue(dialogue);
         this.setGraphic(graphic);
