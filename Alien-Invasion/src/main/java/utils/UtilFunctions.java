@@ -30,10 +30,11 @@ public class UtilFunctions {
         int y = player.getY();
         switch (direction.toLowerCase()) {
             case "north":
-                player.setY(y + 1);
+                // North is up, but the y-axis grows as it goes down
+                player.setY(y - 1);
                 break;
             case "south":
-                player.setY(y - 1);
+                player.setY(y + 1);
                 break;
             case "east":
                 player.setX(x + 1);

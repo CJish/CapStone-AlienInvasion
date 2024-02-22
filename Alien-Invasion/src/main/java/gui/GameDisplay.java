@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 public class GameDisplay extends JPanel implements KeyListener {
 
@@ -19,15 +21,18 @@ public class GameDisplay extends JPanel implements KeyListener {
         setFocusable(true);
         addKeyListener(this);
         initializeComponents(player);
+//        paintPlayerOnMap(player);
     }
 
     private void initializeComponents(Player player) {
         setLayout(null); // We'll use absolute positioning
 
         // Map screen area
-        JPanel mapScreenPanel = new MapScreenPanel("").newPanel(player, 5, 5, 1000, 750);
+        JPanel mapScreenPanel = new MapScreenPanel("", player).newPanel(player, 5, 5, 1000, 750);
         add(mapScreenPanel);
+        Graphics g = new MapScreenPanel("", player).newPanel(player,0,0,0,0).getGraphics();
 
+        // User input panel
         JPanel userInputPanel = new UserInputPanel("Your command: ").newPanel(player, 5, 760, 1000, 26 );
         DisplayMethodsGUI.GUItextInput(userInputPanel, player, 90);
         add(userInputPanel);
@@ -48,7 +53,6 @@ public class GameDisplay extends JPanel implements KeyListener {
         add(inventoryPanel);
         player.setInventoryChangeListener(inventoryPanel);
     }
-
 
     @Override
     public void keyPressed(KeyEvent e) {}
