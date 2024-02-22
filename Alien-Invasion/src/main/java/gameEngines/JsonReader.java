@@ -70,6 +70,7 @@ public class JsonReader {
         }
     }
 
+    // Returns the targeted npc by name
     public static Npc returnNpc(String npcName) {
         try {
             Type npcListType = new TypeToken<List<Npc>>() {}.getType();
