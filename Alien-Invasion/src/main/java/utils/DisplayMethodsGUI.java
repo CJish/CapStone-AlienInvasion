@@ -1,15 +1,12 @@
 package utils;
-import client.NewGame;
 import gameEngines.JsonReader;
 import gameEngines.TextParser;
+import gui.components.CurrentLocationItemsPanel;
+import gui.components.CurrentLocationNPCPanel;
 import models.Player;
 
 import javax.swing.*;
 
-import gameEngines.TextParser;
-import models.Player;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +25,8 @@ public class DisplayMethodsGUI {
             public void actionPerformed(ActionEvent e) {
                 String userText = userInput.getText();
                 TextParser.textParser(userText, player);
+                DisplayMethodsGUI.currentLocationItems(player.getCurrentLocation(), CurrentLocationItemsPanel.items);
+                DisplayMethodsGUI.currentLocationNPCs(player.getCurrentLocation(), CurrentLocationNPCPanel.characters);
             }
         });
         panel.add(userInput, FlowLayout.LEFT);
@@ -54,18 +53,41 @@ public class DisplayMethodsGUI {
         panel.add(placeToShow);
     }
 
-    public static void currentLocationNPCs(String currentLocation, JTextArea description){
+    public static void currentLocationNPCs(String currentLocation, JTextArea textArea){
         if (JsonReader.getLocationByName(currentLocation).getCharacters() != null) {
-            List<String> NPCs = JsonReader.getLocationByName(currentLocation).getCharacters();
-            description.append("\nCharacters near by: \n");
-            String oldText = description.getText();
-            for (String characters : NPCs) {
-                oldText = oldText.concat(characters);
-                System.out.println(oldText);
-                description.append(characters + "\n");
+            if (textArea.getText() == null || textArea.getText().equals("")) {
+                printNpcText(currentLocation, textArea);
+            } else {
+                textArea.setText("");
+                printNpcText(currentLocation, textArea);
             }
-        } else {
 
+        }
+    }
+
+
+
+    public static void currentLocationItems(String currentLocation, JTextArea textArea){
+        if (JsonReader.getLocationByName(currentLocation).getItems() != null) {
+            if (textArea.getText() == null) {
+                printItemsText(currentLocation, textArea);
+            } else {
+                textArea.setText("");
+                printItemsText(currentLocation, textArea);
+            }
+        }
+    }
+
+    private static void printItemsText(String currentLocation, JTextArea textArea) {
+        List<String> NPCs = JsonReader.getLocationByName(currentLocation).getItems();
+        for (String item : NPCs) {
+            textArea.append(item + "\n");
+        }
+    }
+    private static void printNpcText(String currentLocation, JTextArea textArea) {
+        List<String> NPCs = JsonReader.getLocationByName(currentLocation).getCharacters();
+        for (String characters : NPCs) {
+            textArea.append(characters + "\n");
         }
     }
 }

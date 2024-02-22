@@ -55,7 +55,7 @@ public class MessagesPanel extends AbstractPanelCreator implements ChangeListene
 
         // Fetch and display the location description based on the player's current location
         updateLocationDescription(player.getCurrentLocation());
-        DisplayMethodsGUI.currentLocationNPCs(player.getCurrentLocation(), description);
+
         JScrollPane scrollPane = new JScrollPane(description); // Wrap the JTextArea in a JScrollPane
         scrollPane.setBorder(null); // Remove the border of the scroll pane
 

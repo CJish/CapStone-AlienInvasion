@@ -52,6 +52,15 @@ public class GameDisplay extends JPanel implements KeyListener {
         inventoryPanel.newPanel(player, 814, 791, 190, 200);
         add(inventoryPanel);
         player.setInventoryChangeListener(inventoryPanel);
+
+        CurrentLocationItemsPanel itemsPanel = new CurrentLocationItemsPanel("Items Nearby:");
+        itemsPanel.newPanel(player, 1010, 5, 200, 200);
+
+        add(itemsPanel);
+
+        CurrentLocationNPCPanel npcPanel = new CurrentLocationNPCPanel("Characters Nearby:");
+        npcPanel.newPanel(player, 1010, 210, 200, 200);
+        add(npcPanel);
     }
 
     @Override
