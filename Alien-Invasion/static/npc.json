@@ -1,6 +1,6 @@
 [
   {
-    "name" : "CAPTAIN PIKEMAN",
+    "name" : "CAPTAIN-PIKEMAN",
     "dialogue" : ["Welcome to the party", "We gotta get beat these Aliens before they can get to earth"],
     "graphic" : "",
     "death" : "ARG... \n*flops on the ground unmoving*",
@@ -8,7 +8,7 @@
     "health" :"50"
   },
   {
-    "name" : "SPACE MARINE",
+    "name" : "SPACE-MARINE",
     "dialogue" : ["RAH... aliens are on board. kill. RAH", "Aliens are that way, RAH", "Just like the simulations"],
     "graphic" : "",
     "death" : "*thud* \nI forgot to sign my SGLI!",
@@ -16,7 +16,7 @@
     "health" : "75"
   },
   {
-    "name" : "AI B3",
+    "name" : "AI-B3",
     "dialogue" : ["-ALIENCOUNT Scanner says there are %s aliens remaining", "-ONELEFT Scanner says there is %s alien remaining", "-CLEAR looks like this room is clear, Commander", "-scanShip There are still one or more aliens somewhere on the ship"],
     "graphic" : "",
     "death" : "blip *silence*",
@@ -24,7 +24,7 @@
     "health" : "10000"
   },
   {
-    "name" : "PASSANGER",
+    "name" : "PASSENGER",
     "dialogue" : ["aw nah! Spooky aliens are comin' fer us!", "MY WATERMELONS", "I am gonna miss my scrum meeting at this rate."],
     "graphic" : "",
     "death" : " :/ \n*dies*",
@@ -32,7 +32,7 @@
     "health" : "25"
   },
   {
-    "name" : "ALIEN MINION",
+    "name" : "ALIEN-MINION",
     "dialogue" : ["HISS... destroy humans! HISS...", "HISS!"],
     "graphic" : "",
     "death" : "AGH",
@@ -40,7 +40,7 @@
     "health" : "50"
   },
   {
-    "name" : "ALIEN SOLDIER",
+    "name" : "ALIEN-SOLDIER",
     "dialogue" : ["Your kind MUST BE ERADICATED!", "Die meat bag!"],
     "graphic" : "",
     "death" : "HISS! \n*Cough cough* \nImpossible! \n*thud*",
@@ -48,7 +48,7 @@
     "health" : "75"
   },
   {
-    "name" : "ALIEN OFFICER",
+    "name" : "ALIEN-OFFICER",
     "dialogue" : ["Such a primitive kind! \nAlmost a shame to wipe you out, \nI would rather keep you as a pet! \nRAHG"],
     "graphic" : "",
     "death" : "maybe... *cough cough* \npet was a bit of a cruel term \n *thud*",
@@ -56,7 +56,7 @@
     "health" : "100"
   },
   {
-    "name" : "ALIEN QUEEN",
+    "name" : "ALIEN-QUEEN",
     "dialogue" : ["HOW DARE YOU! \n You have slain all my soldiers! \nI suppose I must crush you myself \n*scraping sounds echo as the Queen prepares for battle*"],
     "graphic" : "",
     "death" : "This is most unexpected... \n *falls to the ground, shaking the floor* \nI... only... needed... water... gahh",

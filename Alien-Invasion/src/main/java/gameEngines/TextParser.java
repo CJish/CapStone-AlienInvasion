@@ -21,6 +21,8 @@ public class TextParser {
         String verb = JsonReader.readVerbJson(commands);
         String noun = JsonReader.readNounJson(commands);
 
+        System.out.println("Verb: " + verb);
+        System.out.println("Noun: " + noun);
         if (cmd.length > 1 && noun != null) {
             if (userInput.trim().equalsIgnoreCase("display inventory")) {
                 System.out.println(player.getPlayerInventory());
@@ -45,7 +47,7 @@ public class TextParser {
                         System.out.println(item.getDescription());
                     }
                 } else if (SynonymsJson.talkSynonyms(verb)) {
-                    TalkNPC.interactNPC(noun);
+                    TalkNPC.handleTalkWithNpc(noun);
                 } else {
                     System.out.println("Sorry that was a invalid action");
                 }

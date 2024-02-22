@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import gameEngines.supportengine.Nouns;
 import models.Item;
 import models.Location;
+import models.Npc;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -60,6 +61,23 @@ public class JsonReader {
             for (Item item : itemList) {
                 if (item.getName().trim().equalsIgnoreCase(myItem.trim())) {
                     return item;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Npc returnNpc(String npcName) {
+        try {
+            Type npcListType = new TypeToken<List<Npc>>() {}.getType();
+            List<Npc> itemList = gson.fromJson(new FileReader("./static/npc.json"), npcListType);
+
+            for (Npc npc : itemList) {
+                if (npc.getName().trim().equalsIgnoreCase(npcName.trim())) {
+                    return npc;
                 }
             }
             return null;
