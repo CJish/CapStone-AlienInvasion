@@ -16,9 +16,12 @@ import java.io.IOException;
 import static utils.UtilFunctions.createColoredPanel;
 
 public class MainDisplay extends JFrame implements KeyListener {
+
+    GameDisplay gameDisplay;
+
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player) throws IOException {
-        GameDisplay gameDisplay = new GameDisplay(player);
+        gameDisplay = new GameDisplay(player);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
         int windowWidth = alienSoldierBufferedImg.getWidth();
@@ -29,15 +32,14 @@ public class MainDisplay extends JFrame implements KeyListener {
         JLayeredPane layeredPane = new JLayeredPane();
         add(layeredPane, BorderLayout.CENTER);
 
-        JButton button = new JButton("Click to play Alien Invasion");
+        JButton button = new JButton("Click or Press [ENTER]");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                getContentPane().removeAll();
-                getContentPane().add(gameDisplay);
-                revalidate();
-                repaint();
+                clearTitleLoadGame();
             }
         });
+
+        button.addKeyListener(this);
 
         button.setPreferredSize(new Dimension(windowWidth / 5, windowHeight / 10));
 
@@ -58,9 +60,20 @@ public class MainDisplay extends JFrame implements KeyListener {
         setVisible(true); // Make the frame visible
     }
 
+    // clears the Title Screen and loads the Game Screen while passing in the same gameDisplay(player) that
+    // was set in the first line of showMainDisplay()
+    public void clearTitleLoadGame() {
+        getContentPane().removeAll();
+        getContentPane().add(gameDisplay);
+        revalidate();
+        repaint();
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
-        repaint();
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            clearTitleLoadGame();
+        }
     }
 
     @Override
