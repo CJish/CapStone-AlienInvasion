@@ -16,7 +16,7 @@ import java.io.IOException;
 import static utils.UtilFunctions.createColoredPanel;
 
 
-public class Controller implements ActionListener{
+public class Controller{
     public static void main(String[] args) throws IOException {
         AlienInvasionApp game = new AlienInvasionApp();
         try {
@@ -24,10 +24,5 @@ public class Controller implements ActionListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }
