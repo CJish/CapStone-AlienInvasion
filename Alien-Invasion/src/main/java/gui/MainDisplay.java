@@ -36,8 +36,7 @@ public class MainDisplay extends JFrame implements KeyListener {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 clearTitleLoadGame();
-            }
-        });
+            }});
 
         button.addKeyListener(this);
 

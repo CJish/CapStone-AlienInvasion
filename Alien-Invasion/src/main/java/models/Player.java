@@ -3,16 +3,20 @@ package models;
 import Interfaces.ChangeListener;
 import Interfaces.InventoryChangeListener;
 import gameEngines.JsonWriter;
+import gui.components.MapScreenPanel;
 import utils.OptionChecker;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+
     private ChangeListener changeListener;
     private InventoryChangeListener inventoryChangeListener;
-    private int x;
-    private int y;
+
+    // these are used for the player's starting location
+    private int x; // player's location
+    private int y; // player's location
     private String currentLocation;
     private List<String> playerInventory = new ArrayList<>();
     private int health;
