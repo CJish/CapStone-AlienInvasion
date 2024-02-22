@@ -10,7 +10,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public abstract class AbstractPanelCreator extends JPanel implements KeyListener {
-
+    public final int WINDOW_WIDTH = 800; // Change this to your desired window width
+    public final int WINDOW_HEIGHT = 600;
     private final String jLabelString;// = "Messages";
 
     public AbstractPanelCreator(String thisLabel) {

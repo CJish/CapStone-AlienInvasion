@@ -21,8 +21,11 @@ public class MainDisplay extends JFrame implements KeyListener {
         GameDisplay gameDisplay = new GameDisplay(player);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
-        int windowWidth = alienSoldierBufferedImg.getWidth();
-        int windowHeight = alienSoldierBufferedImg.getHeight() + 10;
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int windowWidth = (int) screenSize.getWidth();
+        int windowHeight = (int) screenSize.getHeight();
         setSize(windowWidth, windowHeight);
         setLayout(new BorderLayout());
 
@@ -33,7 +36,18 @@ public class MainDisplay extends JFrame implements KeyListener {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 getContentPane().removeAll();
-                getContentPane().add(gameDisplay);
+                // Center the gameDisplay panel
+                int panelWidth = gameDisplay.getWidth();
+                int panelHeight = gameDisplay.getHeight();
+                int screenWidth = getContentPane().getWidth(); // Get the width of the content pane
+                int screenHeight = getContentPane().getHeight(); // Get the height of the content pane
+
+                int x = (screenWidth - panelWidth) / 2;
+                int y = (screenHeight - panelHeight) / 2;
+
+                gameDisplay.setBounds(x, y, panelWidth, panelHeight);
+
+                getContentPane().add(gameDisplay, BorderLayout.CENTER); // Add gameDisplay to the center
                 revalidate();
                 repaint();
             }

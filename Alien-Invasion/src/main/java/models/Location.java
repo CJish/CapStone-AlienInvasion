@@ -10,6 +10,8 @@ public class Location {
    private String description;
    private List<String> items = new ArrayList<>();
 
+   List<String> characters = new ArrayList<>();
+
     public Location() {}
 
     public Location(String location, String description, int xValue, int yValue) {
@@ -57,5 +59,13 @@ public class Location {
 
     public void setItems(List<String> items) {
         this.items = items;
+    }
+
+    public List<String> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(List<String> characters) {
+        this.characters = characters;
     }
 }

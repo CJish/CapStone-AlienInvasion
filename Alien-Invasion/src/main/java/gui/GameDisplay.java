@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
 public class GameDisplay extends JPanel implements KeyListener {
 
     public GameDisplay(Player player) {
-        setPreferredSize(new Dimension(1024, 768));
+        setPreferredSize(new Dimension(1024, 800));
         setBackground(Color.BLACK);
         setFocusable(true);
         addKeyListener(this);
@@ -25,26 +25,26 @@ public class GameDisplay extends JPanel implements KeyListener {
         setLayout(null); // We'll use absolute positioning
 
         // Map screen area
-        JPanel mapScreenPanel = new MapScreenPanel("").newPanel(player, 5, 5, 1000, 750);
+        JPanel mapScreenPanel = new MapScreenPanel("").newPanel(player, 805, 5, 1000, 750);
         add(mapScreenPanel);
 
-        JPanel userInputPanel = new UserInputPanel("Your command: ").newPanel(player, 5, 760, 1000, 26 );
-        DisplayMethodsGUI.GUItextInput(userInputPanel, player, 90);
-        add(userInputPanel);
+        JPanel userInputPanel = new UserInputPanel("Your command: ").newPanel(player, 805, 760, 1000, 35 );
+//        DisplayMethodsGUI.GUItextInput(userInputPanel, player, 90);
+         add(userInputPanel);
 
         // Player status panel
-        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 5,791,200,200);
+        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 805,800,200,200);
         add(playerStatusPanel);
 
         // Messages panel
         MessagesPanel messagesPanel = new MessagesPanel("Messages: ");
-        messagesPanel.newPanel(player, 214,791, 590,200);
+        messagesPanel.newPanel(player, 1014,800, 590,200);
         add(messagesPanel);
         player.setChangeListener(messagesPanel);
 
         // Inventory panel
         InventoryPanel inventoryPanel = new InventoryPanel("Inventory: ");
-        inventoryPanel.newPanel(player, 814, 791, 190, 200);
+        inventoryPanel.newPanel(player, 1614, 800, 190, 200);
         add(inventoryPanel);
         player.setInventoryChangeListener(inventoryPanel);
     }
