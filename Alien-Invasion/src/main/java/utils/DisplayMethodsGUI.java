@@ -1,5 +1,6 @@
 package utils;
 import client.NewGame;
+import gameEngines.JsonReader;
 import gameEngines.TextParser;
 import models.Player;
 
@@ -12,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class DisplayMethodsGUI {
     // this replaces our prompter. call this method under an actionlistner
@@ -50,5 +52,20 @@ public class DisplayMethodsGUI {
         JLabel placeToShow = new JLabel(imageToShow);
         placeToShow.setVisible(true);
         panel.add(placeToShow);
+    }
+
+    public static void currentLocationNPCs(String currentLocation, JTextArea description){
+        if (JsonReader.getLocationByName(currentLocation).getCharacters() != null) {
+            List<String> NPCs = JsonReader.getLocationByName(currentLocation).getCharacters();
+            description.append("\nCharacters near by: \n");
+            String oldText = description.getText();
+            for (String characters : NPCs) {
+                oldText = oldText.concat(characters);
+                System.out.println(oldText);
+                description.append(characters + "\n");
+            }
+        } else {
+
+        }
     }
 }
