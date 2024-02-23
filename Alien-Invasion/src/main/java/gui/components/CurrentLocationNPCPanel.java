@@ -41,6 +41,4 @@ public class CurrentLocationNPCPanel extends AbstractPanelCreator implements Cha
     public void onLocationChanged(String newLocation) {
         DisplayMethodsGUI.currentLocationNPCs(newLocation, characters);
     }
-
-
 }
