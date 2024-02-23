@@ -63,6 +63,9 @@ public class GameDisplay extends JLayeredPane {
         player.setInventoryChangeListener(inventoryPanel);
 //        inventoryPanel.setVisible(false);
 
+        CurrentLocationItemsPanel itemsPanel = new CurrentLocationItemsPanel("Items Nearby:");
+//        inventoryPanel.setVisible(false);
+
         // Help panel (pops up on clicking the help button)
         JPanel helpPopupPanel = new HelpPopUpPanel("Help: ").newPanel(player, 5, 5, 900, 750);
         add(helpPopupPanel, JLayeredPane.DRAG_LAYER);
