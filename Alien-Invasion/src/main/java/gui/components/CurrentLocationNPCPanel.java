@@ -28,13 +28,9 @@ public class CurrentLocationNPCPanel extends AbstractPanelCreator implements Cha
         characters.setFont(new Font("Arial", Font.PLAIN, 16));
         characters.setEditable(false);
 
-        updateLocationCharacters(player.getCurrentLocation());
-
         JScrollPane scrollPane = new JScrollPane(characters);
         scrollPane.setBorder(null);
-
-        onLocationChanged(player.getCurrentLocation());
-
+        updateLocationCharacters(player.getCurrentLocation());
         add(scrollPane);
         return this;
     }
@@ -58,7 +54,7 @@ public class CurrentLocationNPCPanel extends AbstractPanelCreator implements Cha
     }
 
     @Override
-    public void onLocationChanged(String newLocation) {
-        updateLocationCharacters(newLocation);
+    public void onChange() {
+        updateLocationCharacters(super.getPlayer().getCurrentLocation());
     }
 }

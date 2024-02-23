@@ -18,11 +18,14 @@ import static utils.UtilFunctions.createColoredPanel;
 
 public class MainDisplay extends JFrame implements KeyListener {
 
-    GameDisplay gameDisplay;
+    private GameDisplay gameDisplay;
+    private EndGameDisplay endGameDisplay;
 
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player, AlienInvasionApp app) throws IOException {
         gameDisplay = new GameDisplay(player);
+        endGameDisplay = new EndGameDisplay(player);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
         int windowWidth = alienSoldierBufferedImg.getWidth() + 205;

@@ -1,9 +1,7 @@
 package models;
 
 import Interfaces.ChangeListener;
-import Interfaces.InventoryChangeListener;
 import gameEngines.JsonWriter;
-import gui.components.MapScreenPanel;
 import utils.OptionChecker;
 
 import java.util.ArrayList;
@@ -11,8 +9,7 @@ import java.util.List;
 
 public class Player {
 
-    private ChangeListener changeListener;
-    private InventoryChangeListener inventoryChangeListener;
+    private final List<ChangeListener> changeListeners = new ArrayList<>();
 
     // these are used for the player's current location
     // starting location is set in AlienInvasionApp
@@ -22,23 +19,25 @@ public class Player {
     private List<String> playerInventory = new ArrayList<>();
     private int health;
 
-    public Player() {}
-
-    public void setChangeListener(ChangeListener listener) {
-        this.changeListener = listener;
+    public Player() {
     }
-    public void setInventoryChangeListener(InventoryChangeListener inventoryChangeListener) {
-        this.inventoryChangeListener = inventoryChangeListener;
+
+    public void addChangeListener(ChangeListener listener) {
+        this.changeListeners.add(listener);
+    }
+
+    private void notifyChangeListeners() {
+        for (ChangeListener listener : changeListeners) {
+            listener.onChange();
+        }
     }
 
     // Methods
     public void addItemToInventory(String item) {
         if (!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
             playerInventory.add(item);
-            JsonWriter.modifyLocation(currentLocation,item,false);
-            if (changeListener != null) {
-                inventoryChangeListener.onInventoryChange(playerInventory);
-            }
+            JsonWriter.modifyLocation(currentLocation, item, false);
+            notifyChangeListeners();
         } else {
             System.out.println("You already have this item");
         }
@@ -46,14 +45,12 @@ public class Player {
     }
 
     public void removeItemFromInventory(String item) {
-        if(!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
+        if (!OptionChecker.itemAlreadyPresent(playerInventory, item)) {
             System.out.println("You cant drop an item you dont have silly");
         } else {
             playerInventory.remove(item);
-            JsonWriter.modifyLocation(currentLocation,item,true);
-            if (changeListener != null) {
-                inventoryChangeListener.onInventoryChange(playerInventory);
-            }
+            JsonWriter.modifyLocation(currentLocation, item, true);
+            notifyChangeListeners();
         }
     }
 
@@ -64,6 +61,7 @@ public class Player {
 
     public void setX(int x) {
         this.x = x;
+        System.out.println(getX() + " " + getY());
     }
 
     public int getY() {
@@ -72,6 +70,7 @@ public class Player {
 
     public void setY(int y) {
         this.y = y;
+        System.out.println(getX() + " " + getY());
     }
 
     public String getCurrentLocation() {
@@ -79,10 +78,8 @@ public class Player {
     }
 
     public void setCurrentLocation(String currentLocation) {
-        this.currentLocation = currentLocation;
-        if (changeListener != null) {
-            changeListener.onLocationChanged(currentLocation);
-        }
+            this.currentLocation = currentLocation;
+            notifyChangeListeners();
     }
 
     public List<String> getPlayerInventory() {

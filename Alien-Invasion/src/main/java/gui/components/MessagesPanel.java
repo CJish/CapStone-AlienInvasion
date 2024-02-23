@@ -16,7 +16,6 @@ import java.util.List;
 public class MessagesPanel extends AbstractPanelCreator implements ChangeListener {
     private JLabel label; // Define label as a field
     private JTextArea description;
-
     public MessagesPanel(String thisLabel) {
         super(thisLabel);
     }
@@ -24,7 +23,6 @@ public class MessagesPanel extends AbstractPanelCreator implements ChangeListene
     @Override
     public JPanel newPanel(Player player, int x, int y, int width, int height) {
         super.newPanel(player, x, y, width, height);
-
         // Use BorderLayout for the panel
         setLayout(new BorderLayout());
 
@@ -80,7 +78,7 @@ public class MessagesPanel extends AbstractPanelCreator implements ChangeListene
     }
 
     @Override
-    public void onLocationChanged(String newLocation) {
-        updateLocation(newLocation);
+    public void onChange() {
+        updateLocation(super.getPlayer().getCurrentLocation());
     }
 }
