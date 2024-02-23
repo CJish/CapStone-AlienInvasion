@@ -3,6 +3,7 @@ package gui.components;
 import gui.AbstractPanelCreator;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 // see the AbstractPanelCreator class for instructions
@@ -12,6 +13,7 @@ public class PlayerStatusPanel extends AbstractPanelCreator {
 
     public PlayerStatusPanel(String thisLabel) {
         super(thisLabel);
+        this.setBackground(Color.BLACK);
     }
 
     private void customizePlayerStatusJLabel() {

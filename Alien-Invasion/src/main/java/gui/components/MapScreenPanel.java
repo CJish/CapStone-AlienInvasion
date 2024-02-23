@@ -25,7 +25,6 @@ public class MapScreenPanel extends AbstractPanelCreator {
     private Font playerFont = new Font("arial", Font.BOLD, 15);
     private String mapPath = "static/commandCenterMap.txt";
     private String[][] mapArray;
-    private String[][] twoDPlayerLoc;
 
     public MapScreenPanel (String thisLabel, Player player) {
         super(thisLabel);
@@ -55,7 +54,7 @@ public class MapScreenPanel extends AbstractPanelCreator {
 
         int startX = 10; // because the map prints up and left of the current pixel
         int startY = 25; // because the map prints up and left of the current pixel
-        // Array[y][x]
+        // Array[y][x] corresponds to x,-y locations on a graph; y goes down as it gets bigger
         for (int y = 0; y < mapArray.length; y++) { // go through each row
             for (int x = 0; x < mapArray[y].length; x++) { // go through each char in the row
                 if (mapArray[y][x] == "@") { // check if current loc == player's loc

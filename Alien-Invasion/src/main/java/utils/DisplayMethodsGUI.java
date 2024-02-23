@@ -10,9 +10,11 @@ import gameEngines.TextParser;
 import models.Player;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class DisplayMethodsGUI {
@@ -20,9 +22,23 @@ public class DisplayMethodsGUI {
 // and pass it the JTextField that you want to capture the text.
     public static void GUItextInput(JPanel panel, Player player, int characters) {
         JTextField userInput = new JTextField();
-        userInput.setColumns(characters);
-        userInput.setBounds(0, 0, 1000, 0);
+        JTextField userPrompt = new JTextField();
 
+        userInput.setColumns(characters);
+        userInput.setBounds(0, 0, 600, 0);
+        userInput.setFont(new Font("Arial", Font.PLAIN, 20));
+        userInput.setBackground(Color.WHITE);
+        userInput.setForeground(Color.BLACK);
+        userInput.setBorder(null);
+        userInput.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 1));
+        userPrompt.setBounds(0, 0, 400, 30);
+        userPrompt.setBackground(Color.BLACK);
+        userPrompt.setForeground(Color.WHITE);
+        userPrompt.setFont(new Font("Arial", Font.BOLD, 20));
+        userPrompt.setText("What's your command?: ");
+        userPrompt.setEditable(false);
+        userPrompt.setLayout(new FlowLayout(FlowLayout.LEFT, 10,1));
+        userPrompt.setBorder(null);
         userInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +46,9 @@ public class DisplayMethodsGUI {
                 TextParser.textParser(userText, player);
             }
         });
-        panel.add(userInput, FlowLayout.LEFT);
+        panel.add(userPrompt);
+        panel.add(userInput);
+        panel.setBorder(new EmptyBorder(1, 80, 1, 1));
 
     }
 
@@ -66,6 +84,35 @@ public class DisplayMethodsGUI {
             }
         } else {
 
+        }
+    }
+
+    public static void hidePanel(JPanel panel) {
+        if (panel.isVisible()) {
+            panel.setVisible(false);
+        } else {
+            panel.setVisible(true);
+        }
+    }
+
+    public static void keyPressedHandler(KeyEvent k, Player player) {
+        switch (k.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_NUMPAD4:
+                UtilFunctions.movePosition("west", player);
+                break;
+            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_NUMPAD6:
+                UtilFunctions.movePosition("east", player);
+                break;
+            case KeyEvent.VK_UP:
+            case KeyEvent.VK_NUMPAD8:
+                UtilFunctions.movePosition("north", player);
+                break;
+            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_NUMPAD2:
+                UtilFunctions.movePosition("south", player);
+                break;
         }
     }
 }
