@@ -42,8 +42,8 @@ public class AlienInvasionApp  {
 
 
     public void initialize() {
-        player.setX(0);
-        player.setY(0);
+        player.setX(16); // player's starting location
+        player.setY(6); // player's starting location
         player.setCurrentLocation("Command Center");
         player.setHealth(100);
         JsonWriter.resetLocationsJSON();

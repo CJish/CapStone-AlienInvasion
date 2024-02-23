@@ -1,5 +1,6 @@
 package gameEngines;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,5 +35,12 @@ public class JsonReaderTest {
         String retrievedString = JsonReader.readNounJson(userInputNpc);
 
         assertEquals(retrievedString, targetString);
+    }
+
+    @Test
+    public void characters_shouldNotBeNull_orEmpty_ifCharactersPresentInLocation() {
+        List<String> characters = JsonReader.getLocationByName("Mystery Room").getCharacters();
+        assertNotNull(characters);
+
     }
 }

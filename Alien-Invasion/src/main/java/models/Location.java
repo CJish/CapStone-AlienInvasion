@@ -9,8 +9,7 @@ public class Location {
    private String location; // location name
    private String description;
    private List<String> items = new ArrayList<>();
-
-   List<String> characters = new ArrayList<>();
+   private List<String> characters = new ArrayList<>();
 
     public Location() {}
 

@@ -16,42 +16,29 @@ import java.io.IOException;
 import static utils.UtilFunctions.createColoredPanel;
 
 public class MainDisplay extends JFrame implements KeyListener {
+
+    GameDisplay gameDisplay;
+
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player) throws IOException {
-        GameDisplay gameDisplay = new GameDisplay(player);
+        gameDisplay = new GameDisplay(player);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
-
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        int windowWidth = (int) screenSize.getWidth();
-        int windowHeight = (int) screenSize.getHeight();
+        int windowWidth = alienSoldierBufferedImg.getWidth() + 205;
+        int windowHeight = alienSoldierBufferedImg.getHeight() + 10;
         setSize(windowWidth, windowHeight);
         setLayout(new BorderLayout());
 
         JLayeredPane layeredPane = new JLayeredPane();
         add(layeredPane, BorderLayout.CENTER);
 
-        JButton button = new JButton("Click to play Alien Invasion");
+        JButton button = new JButton("Click or Press [ENTER]");
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                getContentPane().removeAll();
-                // Center the gameDisplay panel
-                int panelWidth = gameDisplay.getWidth();
-                int panelHeight = gameDisplay.getHeight();
-                int screenWidth = getContentPane().getWidth(); // Get the width of the content pane
-                int screenHeight = getContentPane().getHeight(); // Get the height of the content pane
+                clearTitleLoadGame();
+            }});
 
-                int x = (screenWidth - panelWidth) / 2;
-                int y = (screenHeight - panelHeight) / 2;
-
-                gameDisplay.setBounds(x, y, panelWidth, panelHeight);
-
-                getContentPane().add(gameDisplay, BorderLayout.CENTER); // Add gameDisplay to the center
-                revalidate();
-                repaint();
-            }
-        });
+        button.addKeyListener(this);
 
         button.setPreferredSize(new Dimension(windowWidth / 5, windowHeight / 10));
 
@@ -72,9 +59,20 @@ public class MainDisplay extends JFrame implements KeyListener {
         setVisible(true); // Make the frame visible
     }
 
+    // clears the Title Screen and loads the Game Screen while passing in the same gameDisplay(player) that
+    // was set in the first line of showMainDisplay()
+    public void clearTitleLoadGame() {
+        getContentPane().removeAll();
+        getContentPane().add(gameDisplay);
+        revalidate();
+        repaint();
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
-        repaint();
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            clearTitleLoadGame();
+        }
     }
 
     @Override
