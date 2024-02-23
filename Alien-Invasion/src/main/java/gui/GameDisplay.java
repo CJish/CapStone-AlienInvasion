@@ -28,11 +28,12 @@ public class GameDisplay extends JLayeredPane {
         JPanel backgroundPanel = new JPanel();
         backgroundPanel.setSize(new Dimension(1229, 1034));
         backgroundPanel.setBackground(Color.BLACK);
-        add(backgroundPanel, DEFAULT_LAYER);
+        add(backgroundPanel, 0);
 
         // Map screen area
         JPanel mapScreenPanel = new MapScreenPanel("", player).newPanel(player, 5, 5, 800, 750);
-        add(mapScreenPanel, JLayeredPane.MODAL_LAYER);
+        add(mapScreenPanel, JLayeredPane.PALETTE_LAYER);
+//        mapScreenPanel.setVisible(false);
 
         // User input panel
         JPanel userInputPanel = new UserInputPanel("What is your command?").newPanel(player, 5, 760, 1000, 35);
@@ -67,7 +68,7 @@ public class GameDisplay extends JLayeredPane {
         // Help panel (pops up on clicking the help button)
         JPanel helpPopupPanel = new HelpPopUpPanel("Help: ").newPanel(player, 5, 5, 900, 750);
         add(helpPopupPanel, JLayeredPane.DRAG_LAYER);
-        helpPopupPanel.setVisible(false);
+        helpPopupPanel.setVisible(false); // leave false!!!!
 
         // Panel to hold the help button
         JPanel helpButtonPanel = new HelpButtonPanel("").newPanel(player, 1010, 892, 200, 100, helpPopupPanel);
@@ -78,5 +79,11 @@ public class GameDisplay extends JLayeredPane {
         player.addChangeListener(inventoryPanel);
         player.addChangeListener(itemsPanel);
         player.addChangeListener(npcPanel);
+//        helpButtonPanel.setVisible(false);
+
+        // Panel to display the timer
+        JPanel timerPanel = new TimerPanel("TIME LEFT: ").newPanel(player, 1010, 415, 200, 200);
+        add(timerPanel, MODAL_LAYER);
+//        timerPanel.setVisible(true);
     }
 }
