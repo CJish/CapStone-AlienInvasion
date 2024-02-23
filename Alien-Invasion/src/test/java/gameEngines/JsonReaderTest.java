@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonReaderTest {
     List<String> userInputNpc = new ArrayList<>();
+
     @Before
     public void init() {
         userInputNpc.add("talk");

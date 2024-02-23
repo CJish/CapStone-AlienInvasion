@@ -19,6 +19,4 @@ public class PlayerStatusPanel extends AbstractPanelCreator {
     private void customizePlayerStatusJLabel() {
         //TODO: fill this out with panel-specific logic and add a JLabel
     }
-
-
 }

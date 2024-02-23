@@ -24,7 +24,7 @@ public class AlienInvasionApp  {
         Scanner scan = new Scanner(System.in);
         TitleScreen.displayAsciiArt("./static/title.txt");
 
-        mainDisplay.showMainDisplay(player); // THIS SHOWS THE GUI
+        mainDisplay.showMainDisplay(player, this); // THIS SHOWS THE GUI
 
         if (NewGame.gameStart()) {
             UtilFunctions.clear();
@@ -49,9 +49,7 @@ public class AlienInvasionApp  {
         JsonWriter.resetLocationsJSON();
     }
 
-    public void buttonClicked(KeyEvent k) {
-
-    }
+    public void buttonClicked(KeyEvent k) {}
 
     public boolean isGame() {
         return isGame;
@@ -60,5 +58,4 @@ public class AlienInvasionApp  {
     public void setGame(boolean game) {
         isGame = game;
     }
-
 }

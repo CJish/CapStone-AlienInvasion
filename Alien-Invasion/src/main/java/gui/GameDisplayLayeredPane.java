@@ -31,7 +31,6 @@ public class GameDisplayLayeredPane extends JLayeredPane implements KeyListener 
 
         // User input panel
         JPanel userInputPanel = new UserInputPanel("Your command: ").newPanel(player, 5, 760, 1000, 26 );
-        DisplayMethodsGUI.GUItextInput(userInputPanel, player, 90);
         add(userInputPanel);
 
         // Player status panel

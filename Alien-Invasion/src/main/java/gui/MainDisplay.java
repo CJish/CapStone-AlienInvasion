@@ -1,5 +1,6 @@
 package gui;
 
+import app.AlienInvasionApp;
 import models.Player;
 
 import javax.imageio.ImageIO;
@@ -20,12 +21,12 @@ public class MainDisplay extends JFrame implements KeyListener {
     GameDisplay gameDisplay;
 
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
-    public void showMainDisplay(Player player) throws IOException {
+    public void showMainDisplay(Player player, AlienInvasionApp app) throws IOException {
         gameDisplay = new GameDisplay(player);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
         int windowWidth = alienSoldierBufferedImg.getWidth() + 205;
-        int windowHeight = alienSoldierBufferedImg.getHeight() + 10;
+        int windowHeight = alienSoldierBufferedImg.getHeight() + 20;
         setSize(windowWidth, windowHeight);
         setLayout(new BorderLayout());
 

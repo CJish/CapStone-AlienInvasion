@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public abstract class AbstractPanelCreator extends JPanel implements KeyListener {
-
     private final String jLabelString;// = "Messages";
 
     public AbstractPanelCreator(String thisLabel) {

@@ -4,8 +4,6 @@ import gameEngines.JsonReader;
 import gui.components.*;
 import models.Location;
 import models.Player;
-import utils.DisplayMethodsGUI;
-import utils.UtilFunctions;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -38,28 +36,25 @@ public class GameDisplay extends JLayeredPane {
 //        mapScreenPanel.setVisible(false);
 
         // User input panel
-        JPanel userInputPanel = new UserInputPanel("").newPanel(player, 5, 760, 1000, 30);
-        userInputPanel.setBackground(Color.CYAN);
-        userInputPanel.setVisible(true);
-        DisplayMethodsGUI.GUItextInput(userInputPanel, player, 30);
+        JPanel userInputPanel = new UserInputPanel("What is your command?").newPanel(player, 5, 760, 1000, 35);
+        userInputPanel.setBackground(Color.BLACK);
         add(userInputPanel, JLayeredPane.DRAG_LAYER);
-//        userInputPanel.setVisible(false);
 
         // Player status panel
-        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 5,791,200,200);
+        JPanel playerStatusPanel = new PlayerStatusPanel("Player Status: ").newPanel(player, 5,800,200,200);
         add(playerStatusPanel, JLayeredPane.MODAL_LAYER);
 //        playerStatusPanel.setVisible(false);
 
         // Messages panel
         MessagesPanel messagesPanel = new MessagesPanel("Messages: ");
-        messagesPanel.newPanel(player, 214,791, 590,200);
+        messagesPanel.newPanel(player, 214,800, 590,200);
         add(messagesPanel, JLayeredPane.MODAL_LAYER);
         player.setChangeListener(messagesPanel);
 //        messagesPanel.setVisible(false);
 
         // Inventory panel
         InventoryPanel inventoryPanel = new InventoryPanel("Inventory: ");
-        inventoryPanel.newPanel(player, 814, 791, 190, 200);
+        inventoryPanel.newPanel(player, 814, 800, 190, 200);
         add(inventoryPanel, JLayeredPane.MODAL_LAYER);
         player.setInventoryChangeListener(inventoryPanel);
 //        inventoryPanel.setVisible(false);
@@ -67,6 +62,7 @@ public class GameDisplay extends JLayeredPane {
         // Items at current location panel
         CurrentLocationItemsPanel itemsPanel = new CurrentLocationItemsPanel("Items Nearby:");
         itemsPanel.newPanel(player, 1010, 5, 200, 200);
+
         add(itemsPanel, JLayeredPane.MODAL_LAYER);
 //        itemsPanel.setVisible(false);
 
@@ -79,24 +75,10 @@ public class GameDisplay extends JLayeredPane {
         // Help panel (pops up on clicking the help button)
         JPanel helpPopupPanel = new HelpPopUpPanel("Help: ").newPanel(player, 5, 5, 900, 750);
         add(helpPopupPanel, JLayeredPane.DRAG_LAYER);
-        helpPopupPanel.setVisible(false); // this stays set to false to enable the popup function
+        helpPopupPanel.setVisible(false);
 
         // Panel to hold the help button
-        JPanel helpButtonPanel = new HelpButtonPanel("").newPanel(player, 1010, 892, 200, 100);
-
+        JPanel helpButtonPanel = new HelpButtonPanel("").newPanel(player, 1010, 892, 200, 100, helpPopupPanel);
         add(helpButtonPanel, JLayeredPane.MODAL_LAYER);
-
-        // The actual help button
-        JButton helpButton = new JButton("HELP");
-        helpButton.setPreferredSize(new Dimension(200, 100));
-        helpButton.setBorder(new EmptyBorder(1,1,1,1));
-
-        helpButtonPanel.add(helpButton);
-        helpButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DisplayMethodsGUI.hidePanel(helpPopupPanel);
-            }
-        });
     }
 }

@@ -1,12 +1,14 @@
 package gui.components;
 
 import Interfaces.ChangeListener;
+import gameEngines.JsonReader;
 import gui.AbstractPanelCreator;
+import models.Location;
 import models.Player;
-import utils.DisplayMethodsGUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class CurrentLocationNPCPanel extends AbstractPanelCreator implements ChangeListener {
     public static JTextArea characters;
@@ -26,7 +28,7 @@ public class CurrentLocationNPCPanel extends AbstractPanelCreator implements Cha
         characters.setFont(new Font("Arial", Font.PLAIN, 16));
         characters.setEditable(false);
 
-        DisplayMethodsGUI.currentLocationNPCs(player.getCurrentLocation(), characters);
+        updateLocationCharacters(player.getCurrentLocation());
 
         JScrollPane scrollPane = new JScrollPane(characters);
         scrollPane.setBorder(null);
@@ -37,10 +39,26 @@ public class CurrentLocationNPCPanel extends AbstractPanelCreator implements Cha
         return this;
     }
 
-    @Override
-    public void onLocationChanged(String newLocation) {
-        DisplayMethodsGUI.currentLocationNPCs(newLocation, characters);
+    private void updateLocationCharacters(String location) {
+        Location locationObj = JsonReader.getLocationByName(location);
+        if (locationObj != null) {
+            List<String> charactersList = locationObj.getCharacters();
+            if (charactersList != null && !charactersList.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                for (String item : charactersList) {
+                    sb.append(item).append("\n");
+                }
+                characters.setText(sb.toString());
+            } else {
+                characters.setText("No characters found");
+            }
+        } else {
+            characters.setText("Location not found");
+        }
     }
 
-
+    @Override
+    public void onLocationChanged(String newLocation) {
+        updateLocationCharacters(newLocation);
+    }
 }
