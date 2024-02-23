@@ -41,13 +41,13 @@ public class GameDisplayLayeredPane extends JLayeredPane implements KeyListener 
         MessagesPanel messagesPanel = new MessagesPanel("Messages: ");
         messagesPanel.newPanel(player, 214,791, 590,200);
         add(messagesPanel);
-        player.setChangeListener(messagesPanel);
+        player.addChangeListener(messagesPanel);
 
         // Inventory panel
         InventoryPanel inventoryPanel = new InventoryPanel("Inventory: ");
         inventoryPanel.newPanel(player, 814, 791, 190, 200);
         add(inventoryPanel);
-        player.setInventoryChangeListener(inventoryPanel);
+//        player.setInventoryChangeListener(inventoryPanel);
 
         // Help panel (invisible by default)
         JPanel helpPopupPanel = new HelpPopUpPanel("Help: ").newPanel(player, 5, 5, 1000, 750);

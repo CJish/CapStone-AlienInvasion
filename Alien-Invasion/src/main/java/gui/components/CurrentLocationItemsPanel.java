@@ -11,17 +11,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class CurrentLocationItemsPanel extends AbstractPanelCreator implements ChangeListener, InventoryChangeListener {
+public class CurrentLocationItemsPanel extends AbstractPanelCreator implements ChangeListener {
     private static JTextArea items;
-    private Player player;
-    public CurrentLocationItemsPanel(String thisLabel) {
+
+    public CurrentLocationItemsPanel(String thisLabel ) {
         super(thisLabel);
     }
 
     @Override
     public JPanel newPanel(Player player, int x, int y, int width, int height) {
         super.newPanel(player, x, y, width, height);
-        setPlayer(player);
+
         // Create and customize the JTextArea for location description
         items = new JTextArea();
         items.setBackground(Color.DARK_GRAY);
@@ -30,7 +30,7 @@ public class CurrentLocationItemsPanel extends AbstractPanelCreator implements C
         items.setEditable(false);
         items.setLineWrap(true);
 
-        updateLocationItems(player.getCurrentLocation(), player);
+        updateLocationItems(player.getCurrentLocation());
 
         JScrollPane scrollPane = new JScrollPane(items);
         scrollPane.setBorder(null);
@@ -39,7 +39,7 @@ public class CurrentLocationItemsPanel extends AbstractPanelCreator implements C
         return this;
     }
 
-    private void updateLocationItems(String location, Player player) {
+    private void updateLocationItems(String location) {
         Location locationObj = JsonReader.getLocationByName(location);
         if (locationObj != null) {
             List<String> itemsList = locationObj.getItems();
@@ -58,20 +58,7 @@ public class CurrentLocationItemsPanel extends AbstractPanelCreator implements C
     }
 
     @Override
-    public void onLocationChanged(String newLocation) {
-        updateLocationItems(newLocation, getPlayer());
-    }
-
-    @Override
-    public void onInventoryChange(List<String> inventory) {
-        updateLocationItems(this.getPlayer().getCurrentLocation(), this.getPlayer());
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void onChange() {
+        updateLocationItems(super.getPlayer().getCurrentLocation());
     }
 }

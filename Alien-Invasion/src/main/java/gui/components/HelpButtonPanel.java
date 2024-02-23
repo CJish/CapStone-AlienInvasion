@@ -26,9 +26,7 @@ public class HelpButtonPanel extends AbstractPanelCreator {
         setLayout(new BorderLayout(0,0));
 
         // The actual help button
-        JButton helpButton = new JButton("HELP");
-        helpButton.setPreferredSize(new Dimension(200, 100));
-        helpButton.setBorder(new EmptyBorder(1,1,1,1));
+        JButton helpButton = super.returnButton("Help", 200, 200);
 
         add(helpButton);
         helpButton.addActionListener(new ActionListener() {
