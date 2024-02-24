@@ -36,6 +36,7 @@ public class AlienInvasionApp  {
                 System.out.print("> ");
                 String userInput = scan.nextLine().trim();
                 TextParser.textParser(userInput, player);
+
             }
         }
     }
