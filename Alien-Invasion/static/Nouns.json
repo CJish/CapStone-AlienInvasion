@@ -33,7 +33,10 @@
     "board",
     "shank",
     "goo",
-    "pencil"
+    "pencil",
+    "vial-of-toxic-gas",
+    "protective-vent-cover",
+    "power-drill"
 
   ]
 }
