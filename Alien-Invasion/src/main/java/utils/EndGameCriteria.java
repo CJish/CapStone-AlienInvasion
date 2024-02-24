@@ -6,6 +6,7 @@ import models.Player;
 import java.util.List;
 
 public class EndGameCriteria {
+    private static boolean droppedGas = false;
 
     public static String dropGas(Player player){
         String canDropGas = "I won... but died";
@@ -50,10 +51,19 @@ public class EndGameCriteria {
         if (liveOrDie.equals("I won... but died")) {
             player.setHealth(0);
             System.out.println("You drop the poisonous gas into the vent hole, and the ship rapidly fogs with gas. You choke on the toxic fumes and fall down with all of the Aliens. You've won, but at what cost.");
+            setDroppedGas(true);
         }
         else {
             System.out.println("You dump the poisonous gas into the vent hole, and the ship rapidly fogs with gas. The aliens all die");
-
+            setDroppedGas(true);
         }
+    }
+
+    public static boolean isDroppedGas() {
+        return droppedGas;
+    }
+
+    public static void setDroppedGas(boolean droppedGas) {
+        EndGameCriteria.droppedGas = droppedGas;
     }
 }
