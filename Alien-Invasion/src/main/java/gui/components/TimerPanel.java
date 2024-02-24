@@ -11,7 +11,13 @@ import java.util.TimerTask;
 
 public class TimerPanel extends AbstractPanelCreator {
 
-    private int secondsRemaining = 400; // set to whatever you want the time limit to be
+    private static int secondsRemaining = 400; // set to whatever you want the time limit to be
+
+    private static boolean isTimeZero = false;
+
+    public static boolean getIsTimeZero(int seconds) {
+        return isTimeZero;
+    }
 
     public TimerPanel(String thisLabel) {
         super(thisLabel);
@@ -28,7 +34,6 @@ public class TimerPanel extends AbstractPanelCreator {
         super.newPanel(player, x, y, width, height);
         JPanel thisPanel = this;
         setBackground(Color.BLACK);
-        setBorder(new EmptyBorder(1,1,1,1));
         setLayout(new BorderLayout(0,0));
         JLabel timerLabel = new JLabel(getTimeString());
         timerLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -53,12 +58,13 @@ public class TimerPanel extends AbstractPanelCreator {
                 }else {
                     timer.cancel();
                     SwingUtilities.invokeLater(() -> {
+                        isTimeZero = true;
                         timerLabel.setText("Time's up!");
                         JOptionPane.showMessageDialog(timerLabel, "Time's up!");
                     });
                 }
             }
-        }, 0, 1000); // period = time in milliseconds between ticks
+        }, 0, 20); // period = time in milliseconds between ticks
 
         setVisible(true);
 
