@@ -60,7 +60,7 @@ public class GameDisplay extends JLayeredPane {
         add(npcPanel, JLayeredPane.MODAL_LAYER);
 
         // Help panel (pops up on clicking the help button)
-        JPanel helpPopupPanel = new HelpPopUpPanel("Help: ").newPanel(player, 5, 5, 900, 750);
+        JPanel helpPopupPanel = new HelpPopUpPanel("").newPanel(player, 5, 5, 900, 750);
         add(helpPopupPanel, JLayeredPane.DRAG_LAYER);
         helpPopupPanel.setVisible(false); // leave false!!!!
 
