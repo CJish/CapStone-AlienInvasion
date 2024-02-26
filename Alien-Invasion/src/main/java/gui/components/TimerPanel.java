@@ -68,7 +68,7 @@ public class TimerPanel extends AbstractPanelCreator {
                     });
                 }
             }
-        }, 0, 20); // period = time in milliseconds between ticks
+        }, 0, 1000); // period = time in milliseconds between ticks
 
         setVisible(true);
 
