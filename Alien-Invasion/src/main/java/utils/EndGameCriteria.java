@@ -14,11 +14,11 @@ public class EndGameCriteria {
         List<String> inventory = player.getPlayerInventory();
         String location = player.getCurrentLocation();
 
-        if (inventory.contains("vial-of-toxic-gas")&& inventory.contains("protective-vent-cover") && inventory.contains("gas-mask") && location.equals("Oxygen Vent Room")) {
+        if (inventory.contains("toxic-gas")&& inventory.contains("vent-cover") && inventory.contains("gas-mask") && location.equals("Oxygen Vent Room")) {
 
             return canDropGas;
         }
-        else if (inventory.contains("vial-of-toxic-gas")&& inventory.contains("protective-vent-cover") && location.equals("Oxygen Vent Room")) {
+        else if (inventory.contains("toxic-gas")&& inventory.contains("vent-cover") && location.equals("Oxygen Vent Room")) {
 
             return canDropGasAndLive;
         }
