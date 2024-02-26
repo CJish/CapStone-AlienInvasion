@@ -33,13 +33,13 @@ public class EndGameCriteria {
             System.out.println("You drop the poisonous gas into the vent hole, and the ship rapidly fogs with gas. You choke on the toxic fumes and fall down with all of the Aliens. You've won, but at what cost.");
             setDroppedGas(true);
             player.setPlayerWon(true);
-            mainDisplay.showEndGameDisplay();
+            mainDisplay.showEndGameDisplay(player, true);
         }
         else {
             System.out.println("You dump the poisonous gas into the vent hole, and the ship rapidly fogs with gas. The aliens all die");
             setDroppedGas(true);
             player.setPlayerWon(true);
-            mainDisplay.showEndGameDisplay();
+            mainDisplay.showEndGameDisplay(player, true);
         }
     }
 

@@ -62,7 +62,6 @@ public class Player {
 
     public void setX(int x) {
         this.x = x;
-        System.out.println(getX() + " " + getY());
     }
 
     public int getY() {
@@ -71,7 +70,6 @@ public class Player {
 
     public void setY(int y) {
         this.y = y;
-        System.out.println(getX() + " " + getY());
     }
 
     public String getCurrentLocation() {
