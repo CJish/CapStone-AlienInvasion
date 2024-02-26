@@ -37,6 +37,12 @@ public class MainDisplay extends JFrame implements KeyListener {
         JLayeredPane layeredPane = new JLayeredPane();
         add(layeredPane, BorderLayout.CENTER);
 
+
+        JTextArea textArea = new JTextArea();
+        textArea.setText("Your ship has been boarded by hostile aliens... \nAnd on your return flight to earth! \nIf the ship gets to Earth before you can find a way to solve the crisis, \nEarth will surely parish! \nYou hear the beeping of machines and the hum of your ships air vents pumping the life line of oxygen");
+        textArea.setEditable(false);
+
+
         JButton button = new JButton("Click or Press [ENTER]");
         button.addActionListener(e -> clearTitleLoadGame());
 
@@ -45,7 +51,7 @@ public class MainDisplay extends JFrame implements KeyListener {
         button.setPreferredSize(new Dimension(windowWidth / 5, windowHeight / 10));
 
         JPanel panel1 = createColoredPanel(Color.BLACK, 0, 0, windowWidth, windowHeight);
-        JPanel panel2 = createColoredPanel(Color.WHITE, windowWidth / 2 - 100, windowHeight / 2 - 100, windowWidth / 5, windowHeight / 12);
+        JPanel panel2 = createColoredPanel(Color.WHITE, windowWidth / 4, windowHeight / 2 - 100, windowWidth / 2, windowHeight / 1);
 
         panel1.setOpaque(false);
         panel2.setOpaque(false);
@@ -55,7 +61,9 @@ public class MainDisplay extends JFrame implements KeyListener {
 
         JLabel alienSoldierLabel = new JLabel(new ImageIcon(alienSoldierBufferedImg));
         panel1.add(alienSoldierLabel);
-        panel2.add(button, BorderLayout.CENTER);
+        panel2.add(textArea, BorderLayout.EAST);
+        panel2.add(button, BorderLayout.EAST);
+
 
         setIconImage(alienSoldierBufferedImg);
         setVisible(true); // Make the frame visible

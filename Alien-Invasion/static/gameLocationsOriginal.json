@@ -1,7 +1,7 @@
 [
   {
     "location": "Command Center",
-    "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.",
+    "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n The entire eastern wall is lined with an array of high-tech decryption equipment. There is a bracket installed for the toxic-gas, installed as per deep space travel protocol in the event of hostile boarding.",
     "x": 0,
     "y": 0,
     "items": ["goo", "pencil", "toxic-gas"],
