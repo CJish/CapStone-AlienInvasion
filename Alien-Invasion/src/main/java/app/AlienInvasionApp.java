@@ -2,12 +2,16 @@ package app;
 
 import client.*;
 import gameEngines.JsonWriter;
+import gui.EndGameDisplay;
 import gui.MainDisplay;
 import gui.components.MessagesPanel;
 import models.Player;
 import gameEngines.TextParser;
+import utils.DisplayMethodsGUI;
 import utils.EndGameCriteria;
 import utils.UtilFunctions;
+
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Scanner;
@@ -39,7 +43,6 @@ public class AlienInvasionApp  {
                 TextParser.textParser(userInput, player);
                 if (EndGameCriteria.isDroppedGas()) {
                     setGame(false);
-
                 }
             }
         }
