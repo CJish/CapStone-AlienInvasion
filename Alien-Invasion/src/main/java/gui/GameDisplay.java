@@ -1,5 +1,6 @@
 package gui;
 
+import Interfaces.ChangeListener;
 import gui.components.*;
 import models.Player;
 
@@ -73,7 +74,7 @@ public class GameDisplay extends JLayeredPane {
         player.addChangeListener(inventoryPanel);
         player.addChangeListener(itemsPanel);
         player.addChangeListener(npcPanel);
-//        helpButtonPanel.setVisible(false);
+        player.addChangeListener((ChangeListener) playerStatusPanel);
 
         // Panel to display the timer
         JPanel timerPanel = new TimerPanel("TIME LEFT: ", mainDisplay).newPanel(player, 1010, 415, 200, 200);

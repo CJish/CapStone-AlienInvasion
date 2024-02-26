@@ -20,6 +20,9 @@ public class Player {
     private int health;
     private boolean playerWon;
 
+    private String npcDialouge;
+
+
     public Player() {
     }
 
@@ -103,5 +106,14 @@ public class Player {
 
     public void setPlayerWon(boolean playerWon) {
         this.playerWon = playerWon;
+    }
+
+    public String getNpcDialouge() {
+        return npcDialouge;
+    }
+
+    public void setNpcDialouge(String npcDialouge) {
+        this.npcDialouge = npcDialouge;
+        notifyChangeListeners();
     }
 }
