@@ -1,5 +1,6 @@
 package utils;
 
+import gui.EndGameDisplay;
 import models.Player;
 
 import javax.swing.*;
@@ -13,7 +14,6 @@ public class DisplayMethodsGUI {
             panel.setVisible(true);
         }
     }
-
     public static void keyPressedHandler(KeyEvent k, Player player) {
         switch (k.getKeyCode()) {
             case KeyEvent.VK_LEFT:

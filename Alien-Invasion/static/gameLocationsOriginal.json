@@ -4,7 +4,7 @@
     "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.",
     "x": 0,
     "y": 0,
-    "items": ["goo", "pencil"],
+    "items": ["goo", "pencil", "toxic-gas"],
     "characters": ["SPACE-MARINE", "CAPTAIN-PIKEMAN"]
   },
   {
@@ -12,7 +12,7 @@
     "description": "As you step closer to the entrance, the ambiance shifts dramatically. The lighting within this room is dimmed, creating an atmosphere of otherworldly mystique. Walls adorned with sleek, futuristic panels seem to pulse with faint, ethereal light.\nIn the center of the room, there stands a raised platform, upon which rests a high-tech console. Upon this console, you spot a state-of-the-art virtual reality headset and a matching body suit, both exuding an air of cutting-edge technology. The headset appears to promise a journey into a digital realm, while the body suit suggests an immersive experience that engages all your senses.",
     "x": 22,
     "y": 13,
-    "items": ["board", "shank"],
+    "items": ["board", "shank", "power-drill"],
     "characters": ["AI-B3", "PASSENGER"]
   },
   {
@@ -20,7 +20,7 @@
     "description": "The Sleep Quarters is a peaceful and comfortable space designed for the crew to rest and recharge during their long interstellar journeys. Rows of neatly arranged bunk beds line the room, each equipped with a personal storage locker.\nSoft ambient lighting fills the room, creating a serene atmosphere. The gentle hum of the ship's engines provides a soothing background noise, lulling the crew into a restful slumber.",
     "x": 16,
     "y": 42,
-    "items": ["pillow", "apple"],
+    "items": ["pillow", "apple", "gas-mask"],
     "characters": ["ALIEN-MINION", "ALIEN-QUEEN"]
   },
   {
@@ -30,5 +30,12 @@
     "y": 30,
     "items": ["artifact", "key-card"],
     "characters": ["ALIEN-SOLDIER", "ALIEN-OFFICER"]
+  },
+  {
+    "location" : "Oxygen Vent Room",
+    "description" : "The room is full of large industrial fans that circulate the breathable air all through out the TLG Alactica. It is a critical part of the ship!",
+    "x" : 28,
+    "y" : 42,
+    "items" : ["vent-cover"]
   }
 ]

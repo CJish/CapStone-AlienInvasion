@@ -5,6 +5,7 @@ import json.SynonymsJson;
 import models.Item;
 import models.Location;
 import models.Player;
+import utils.EndGameCriteria;
 import utils.UtilFunctions;
 
 import javax.swing.*;
@@ -39,6 +40,9 @@ public class TextParser {
                 } else if (SynonymsJson.getSynonyms(verb)) {
                     player.addItemToInventory(noun);
                 } else if (SynonymsJson.dropSynonyms(verb)) {
+                    if (!EndGameCriteria.dropGas(player).equals("false")) { // checks to see if the player can end the game
+                        EndGameCriteria.poisonTheShip(EndGameCriteria.dropGas(player), player);
+                    }
                     player.removeItemFromInventory(noun);
                 } else if (SynonymsJson.examineSynonyms(verb)) {
                     Item item = JsonReader.readItemDescription(noun);

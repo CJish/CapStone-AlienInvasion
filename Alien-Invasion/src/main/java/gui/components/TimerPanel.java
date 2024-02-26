@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 public class TimerPanel extends AbstractPanelCreator {
 
-    private static int secondsRemaining = 400; // set to whatever you want the time limit to be
+    private static int secondsRemaining = 400000; // set to whatever you want the time limit to be
 
     private static boolean isTimeZero = false;
     private final MainDisplay mainDisplay;

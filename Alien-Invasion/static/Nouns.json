@@ -33,7 +33,11 @@
     "board",
     "shank",
     "goo",
-    "pencil"
+    "pencil",
+    "toxic-gas",
+    "vent-cover",
+    "power-drill",
+    "gas-mask"
 
   ]
 }
