@@ -59,11 +59,14 @@ public class TextParser {
                     if (item != null) {
                         System.out.println(item.getName() + ": ");
                         System.out.println(item.getDescription());
+                        player.setNpcDialouge(item.getDescription());
                     }
                 } else if (SynonymsJson.talkSynonyms(verb)) {
-                    TalkNPC.handleTalkWithNpc(noun);
+                   String npcDialogue = TalkNPC.handleTalkWithNpc(noun);
+                   player.setNpcDialouge(npcDialogue);
                 } else {
                     System.out.println("Sorry that was a invalid action");
+                    player.setNpcDialouge("Sorry that was a invalid action");
                 }
             }
         } else if (cmd.length == 1) {
@@ -81,9 +84,11 @@ public class TextParser {
                     break;
                 default:
                     System.out.println("Sorry that was an unrecognizable command.");
+                    player.setNpcDialouge("Sorry that was an unrecognizable command.");
             }
         } else {
             System.out.println("Sorry that was an unrecognizable text length.");
+            player.setNpcDialouge("Sorry that was an unrecognizable text length.");
         }
     }
 

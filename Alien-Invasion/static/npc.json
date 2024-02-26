@@ -1,7 +1,7 @@
 [
   {
     "name" : "CAPTAIN-PIKEMAN",
-    "dialogue" : ["Welcome to the party", "We gotta get beat these Aliens before they can get to earth"],
+    "dialogue" : ["CAPTAIN-PIKEMAN:\n\nWelcome to the party", "CAPTAIN-PIKEMAN:\n\nWe gotta get beat these Aliens before they can get to earth"],
     "graphic" : "",
     "death" : "ARG... \n*flops on the ground unmoving*",
     "alignment" : "friendly",
@@ -9,7 +9,7 @@
   },
   {
     "name" : "SPACE-MARINE",
-    "dialogue" : ["RAH... aliens are on board. kill. RAH", "Aliens are that way, RAH", "Just like the simulations"],
+    "dialogue" : ["SPACE-MARINE:\n\nRAH... aliens are on board. kill. RAH", "SPACE-MARINE:\n\nAliens are that way, RAH", "SPACE-MARINE:\n\nJust like the simulations"],
     "graphic" : "",
     "death" : "*thud* \nI forgot to sign my SGLI!",
     "alignment" : "friendly",
@@ -25,7 +25,7 @@
   },
   {
     "name" : "PASSENGER",
-    "dialogue" : ["aw nah! Spooky aliens are comin' fer us!", "MY WATERMELONS", "I am gonna miss my scrum meeting at this rate."],
+    "dialogue" : ["PASSENGER:\n\naw nah! Spooky aliens are comin' fer us!", "PASSENGER:\n\nMY WATERMELONS", "PASSENGER:\n\nI am gonna miss my scrum meeting at this rate."],
     "graphic" : "",
     "death" : " :/ \n*dies*",
     "alignment" : "friendly",
@@ -33,7 +33,7 @@
   },
   {
     "name" : "ALIEN-MINION",
-    "dialogue" : ["HISS... destroy humans! HISS...", "HISS!"],
+    "dialogue" : ["ALIEN-MINION:\n\nHISS... destroy humans! HISS...", "ALIEN-MINION:\n\nHISS!"],
     "graphic" : "",
     "death" : "AGH",
     "alignment" : "enemy",
@@ -41,7 +41,7 @@
   },
   {
     "name" : "ALIEN-SOLDIER",
-    "dialogue" : ["Your kind MUST BE ERADICATED!", "Die meat bag!"],
+    "dialogue" : ["ALIEN-SOLDIER:\n\nYour kind MUST BE ERADICATED!", "ALIEN-SOLDIER:\n\nDie meat bag!"],
     "graphic" : "",
     "death" : "HISS! \n*Cough cough* \nImpossible! \n*thud*",
     "alignment" : "enemy",
@@ -49,7 +49,7 @@
   },
   {
     "name" : "ALIEN-OFFICER",
-    "dialogue" : ["Such a primitive kind! \nAlmost a shame to wipe you out, \nI would rather keep you as a pet! \nRAHG"],
+    "dialogue" : ["ALIEN-OFFICER:\n\nSuch a primitive kind! \nAlmost a shame to wipe you out, \nI would rather keep you as a pet! \nRAHG"],
     "graphic" : "",
     "death" : "maybe... *cough cough* \npet was a bit of a cruel term \n *thud*",
     "alignment" : "enemy",
@@ -57,7 +57,7 @@
   },
   {
     "name" : "ALIEN-QUEEN",
-    "dialogue" : ["HOW DARE YOU! \n You have slain all my soldiers! \nI suppose I must crush you myself \n*scraping sounds echo as the Queen prepares for battle*"],
+    "dialogue" : ["ALIEN-QUEEN:\n\nHOW DARE YOU! \n You have slain all my soldiers! \nI suppose I must crush you myself \n*scraping sounds echo as the Queen prepares for battle*"],
     "graphic" : "",
     "death" : "This is most unexpected... \n *falls to the ground, shaking the floor* \nI... only... needed... water... gahh",
     "alignment" : "enemy",
