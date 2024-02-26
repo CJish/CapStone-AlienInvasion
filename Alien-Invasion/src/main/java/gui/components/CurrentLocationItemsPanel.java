@@ -1,7 +1,6 @@
 package gui.components;
 
 import Interfaces.ChangeListener;
-import Interfaces.InventoryChangeListener;
 import gameEngines.JsonReader;
 import gui.AbstractPanelCreator;
 import models.Location;

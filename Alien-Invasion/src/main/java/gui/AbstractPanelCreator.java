@@ -14,12 +14,10 @@ To modify one of the subclasses:
 
 package gui;
 
-import gui.components.MapScreenPanel;
 import models.Player;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.Style;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

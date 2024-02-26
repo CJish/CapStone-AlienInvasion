@@ -2,6 +2,7 @@ package gui;
 
 import app.AlienInvasionApp;
 import models.Player;
+import utils.EndGameCriteria;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,11 +20,11 @@ import static utils.UtilFunctions.createColoredPanel;
 public class MainDisplay extends JFrame implements KeyListener {
 
     private GameDisplay gameDisplay;
-    private EndGameDisplay endGameDisplay;
+    private static EndGameDisplay endGameDisplay;
 
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player, AlienInvasionApp app) throws IOException {
-        gameDisplay = new GameDisplay(player);
+        gameDisplay = new GameDisplay(player, this);
         endGameDisplay = new EndGameDisplay(player);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,10 +38,7 @@ public class MainDisplay extends JFrame implements KeyListener {
         add(layeredPane, BorderLayout.CENTER);
 
         JButton button = new JButton("Click or Press [ENTER]");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                clearTitleLoadGame();
-            }});
+        button.addActionListener(e -> clearTitleLoadGame());
 
         button.addKeyListener(this);
 
@@ -72,6 +70,13 @@ public class MainDisplay extends JFrame implements KeyListener {
         repaint();
     }
 
+    public void showEndGameDisplay() {
+        this.getContentPane().removeAll();
+        this.getContentPane().add(endGameDisplay);
+        this.revalidate();
+        this.repaint();
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -84,4 +89,5 @@ public class MainDisplay extends JFrame implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {}
+
 }

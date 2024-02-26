@@ -1,27 +1,21 @@
 package gui;
 
-import gameEngines.JsonReader;
 import gui.components.*;
-import models.Location;
 import models.Player;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 
 public class GameDisplay extends JLayeredPane {
 
-    public GameDisplay(Player player) {
+    public GameDisplay(Player player, MainDisplay mainDisplay) {
         setPreferredSize(new Dimension(1229, 1034));
         setBackground(Color.BLACK);
         setFocusable(true);
-        initializeComponents(player);
+        initializeComponents(player, mainDisplay);
     }
 
-    private void initializeComponents(Player player) {
+    private void initializeComponents(Player player, MainDisplay mainDisplay) {
 
         setLayout(null); // We'll use absolute positioning
 
@@ -36,7 +30,7 @@ public class GameDisplay extends JLayeredPane {
 //        mapScreenPanel.setVisible(false);
 
         // User input panel
-        JPanel userInputPanel = new UserInputPanel("What is your command?").newPanel(player, 5, 760, 1000, 35);
+        JPanel userInputPanel = new UserInputPanel("What is your command?", mainDisplay).newPanel(player, 5, 760, 1000, 35);
         userInputPanel.setBackground(Color.BLACK);
         add(userInputPanel, JLayeredPane.DRAG_LAYER);
 
@@ -82,7 +76,7 @@ public class GameDisplay extends JLayeredPane {
 //        helpButtonPanel.setVisible(false);
 
         // Panel to display the timer
-        JPanel timerPanel = new TimerPanel("TIME LEFT: ").newPanel(player, 1010, 415, 200, 200);
+        JPanel timerPanel = new TimerPanel("TIME LEFT: ", mainDisplay).newPanel(player, 1010, 415, 200, 200);
         add(timerPanel, MODAL_LAYER);
 //        timerPanel.setVisible(true);
     }

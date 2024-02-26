@@ -26,12 +26,7 @@ public class EndGamePanel extends AbstractPanelCreator {
 
         // The actual end game button
         JButton endGameButton = super.returnButton("End Game", 200, 200);
-        endGameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        endGameButton.addActionListener(e -> System.exit(0));
 
         // Add the end game button to the center of the main panel
         panel.add(endGameButton, BorderLayout.CENTER);

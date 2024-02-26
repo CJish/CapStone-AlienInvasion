@@ -29,12 +29,7 @@ public class HelpButtonPanel extends AbstractPanelCreator {
         JButton helpButton = super.returnButton("Help", 200, 200);
 
         add(helpButton);
-        helpButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DisplayMethodsGUI.hidePanel(panel);
-            }
-        });
+        helpButton.addActionListener(e -> DisplayMethodsGUI.hidePanel(panel));
 
         return this;
     }

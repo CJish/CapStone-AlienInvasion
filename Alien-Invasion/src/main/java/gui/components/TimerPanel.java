@@ -1,6 +1,7 @@
 package gui.components;
 
 import gui.AbstractPanelCreator;
+import gui.MainDisplay;
 import models.Player;
 
 import javax.swing.*;
@@ -14,13 +15,15 @@ public class TimerPanel extends AbstractPanelCreator {
     private static int secondsRemaining = 400000; // set to whatever you want the time limit to be
 
     private static boolean isTimeZero = false;
+    private final MainDisplay mainDisplay;
 
     public static boolean getIsTimeZero(int seconds) {
         return isTimeZero;
     }
 
-    public TimerPanel(String thisLabel) {
+    public TimerPanel(String thisLabel, MainDisplay mainDisplay) {
         super(thisLabel);
+        this.mainDisplay = mainDisplay;
     }
 
     private String getTimeString() {
@@ -61,6 +64,7 @@ public class TimerPanel extends AbstractPanelCreator {
                         isTimeZero = true;
                         timerLabel.setText("Time's up!");
                         JOptionPane.showMessageDialog(timerLabel, "Time's up!");
+                        mainDisplay.showEndGameDisplay();
                     });
                 }
             }
