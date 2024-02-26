@@ -48,6 +48,7 @@ public class EndGameDisplay extends JLayeredPane {
             didPlayerWin = "You Lost";
             System.out.println("Player won: " + player.isPlayerWon());
         }
+
         JLabel winner = new JLabel(didPlayerWin);
         winner.setFont(new Font("Arial", Font.BOLD, 80));
         winner.setForeground(Color.WHITE);
