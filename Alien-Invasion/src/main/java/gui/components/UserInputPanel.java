@@ -2,6 +2,7 @@ package gui.components;
 
 import gameEngines.TextParser;
 import gui.AbstractPanelCreator;
+import gui.MainDisplay;
 import models.Player;
 
 import javax.swing.*;
@@ -11,8 +12,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserInputPanel extends AbstractPanelCreator {
-    public UserInputPanel(String thisLabel) {
+    private final MainDisplay mainDisplay;
+    private TextParser textParser;
+    public UserInputPanel(String thisLabel, MainDisplay mainDisplay) {
         super(thisLabel);
+        this.mainDisplay = mainDisplay;
     }
 
     @Override
@@ -27,8 +31,9 @@ public class UserInputPanel extends AbstractPanelCreator {
         userInput.setColumns(20); // Customize column size as needed
 
         userInput.addActionListener(e -> {
+            textParser = new TextParser(mainDisplay);
             String userText = userInput.getText();
-            TextParser.textParser(userText, player);
+            textParser.textParser(userText, player);
             userInput.setText("");
         });
 

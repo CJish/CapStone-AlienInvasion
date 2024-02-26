@@ -30,7 +30,7 @@ public class GameDisplay extends JLayeredPane {
 //        mapScreenPanel.setVisible(false);
 
         // User input panel
-        JPanel userInputPanel = new UserInputPanel("What is your command?").newPanel(player, 5, 760, 1000, 35);
+        JPanel userInputPanel = new UserInputPanel("What is your command?", mainDisplay).newPanel(player, 5, 760, 1000, 35);
         userInputPanel.setBackground(Color.BLACK);
         add(userInputPanel, JLayeredPane.DRAG_LAYER);
 

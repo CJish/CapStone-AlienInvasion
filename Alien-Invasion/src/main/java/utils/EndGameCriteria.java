@@ -1,6 +1,8 @@
 package utils;
 
 import app.AlienInvasionApp;
+import com.sun.tools.javac.Main;
+import gui.MainDisplay;
 import models.Player;
 
 import java.util.List;
@@ -23,39 +25,21 @@ public class EndGameCriteria {
             return canDropGasAndLive;
         }
         return "false";
-    };
-
-    public static boolean canGoVentRoom(Player player) {
-        boolean hasKeyCard = false;
-        List<String> inventory = player.getPlayerInventory();
-
-        if (inventory.contains("key-card")) {
-            hasKeyCard = true;
-        }
-
-        return hasKeyCard;
     }
 
-    public static boolean getVentCover(Player player, boolean hasDrill) {
-        boolean hasVentCover = false;
-        List<String> inventory = player.getPlayerInventory();
-
-        if (inventory.contains("power-drill")) {
-            hasVentCover = true;
-        }
-
-        return hasVentCover;
-    }
-
-    public static void poisonTheShip(String liveOrDie, Player player) {
+    public static void poisonTheShip(String liveOrDie, Player player, MainDisplay mainDisplay) {
         if (liveOrDie.equals("I won... but died")) {
             player.setHealth(0);
             System.out.println("You drop the poisonous gas into the vent hole, and the ship rapidly fogs with gas. You choke on the toxic fumes and fall down with all of the Aliens. You've won, but at what cost.");
             setDroppedGas(true);
+            player.setPlayerWon(true);
+            mainDisplay.showEndGameDisplay();
         }
         else {
             System.out.println("You dump the poisonous gas into the vent hole, and the ship rapidly fogs with gas. The aliens all die");
             setDroppedGas(true);
+            player.setPlayerWon(true);
+            mainDisplay.showEndGameDisplay();
         }
     }
 

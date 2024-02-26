@@ -19,6 +19,7 @@ import java.util.Scanner;
 
 
 public class AlienInvasionApp  {
+    private final TextParser textParser = new TextParser();
     private final Player player = new Player();
     private final MainDisplay mainDisplay = new MainDisplay();
     private boolean isGame = true;
@@ -40,7 +41,7 @@ public class AlienInvasionApp  {
                 System.out.println("What's your next move Commander?");
                 System.out.print("> ");
                 String userInput = scan.nextLine().trim();
-                TextParser.textParser(userInput, player);
+                textParser.textParser(userInput, player);
                 if (EndGameCriteria.isDroppedGas()) {
                     setGame(false);
                 }
@@ -54,6 +55,7 @@ public class AlienInvasionApp  {
         player.setY(6); // player's starting location
         player.setCurrentLocation("Command Center");
         player.setHealth(100);
+        player.setPlayerWon(false);
         JsonWriter.resetLocationsJSON();
     }
 

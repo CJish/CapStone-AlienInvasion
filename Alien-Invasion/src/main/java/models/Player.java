@@ -18,6 +18,7 @@ public class Player {
     private String currentLocation;
     private List<String> playerInventory = new ArrayList<>();
     private int health;
+    private boolean playerWon;
 
     public Player() {
     }
@@ -96,5 +97,13 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public boolean isPlayerWon() {
+        return playerWon;
+    }
+
+    public void setPlayerWon(boolean playerWon) {
+        this.playerWon = playerWon;
     }
 }

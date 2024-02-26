@@ -2,6 +2,7 @@ package gui;
 
 import app.AlienInvasionApp;
 import models.Player;
+import utils.EndGameCriteria;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,7 +20,7 @@ import static utils.UtilFunctions.createColoredPanel;
 public class MainDisplay extends JFrame implements KeyListener {
 
     private GameDisplay gameDisplay;
-    private EndGameDisplay endGameDisplay;
+    private static EndGameDisplay endGameDisplay;
 
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
     public void showMainDisplay(Player player, AlienInvasionApp app) throws IOException {
@@ -88,4 +89,5 @@ public class MainDisplay extends JFrame implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {}
+
 }

@@ -1,6 +1,8 @@
 package gameEngines;
 
 import client.*;
+import com.sun.tools.javac.Main;
+import gui.MainDisplay;
 import json.SynonymsJson;
 import models.Item;
 import models.Location;
@@ -14,7 +16,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TextParser {
-    public static void textParser(String userInput, Player player) {
+    private final MainDisplay mainDisplay;
+
+    public TextParser() {
+        this.mainDisplay = new MainDisplay();
+    }
+
+    public TextParser(MainDisplay mainDisplay) {
+        this.mainDisplay = mainDisplay;
+    }
+
+    public void textParser(String userInput, Player player) {
 
         String[] cmd = userInput.split("\\s+");
         List<String> commands = new ArrayList<>(Arrays.asList(cmd));
@@ -41,7 +53,7 @@ public class TextParser {
                     player.addItemToInventory(noun);
                 } else if (SynonymsJson.dropSynonyms(verb)) {
                     if (!EndGameCriteria.dropGas(player).equals("false")) { // checks to see if the player can end the game
-                        EndGameCriteria.poisonTheShip(EndGameCriteria.dropGas(player), player);
+                        EndGameCriteria.poisonTheShip(EndGameCriteria.dropGas(player), player, mainDisplay);
                     }
                     player.removeItemFromInventory(noun);
                 } else if (SynonymsJson.examineSynonyms(verb)) {
@@ -77,4 +89,8 @@ public class TextParser {
         }
     }
 
+
+    public MainDisplay getMainDisplay() {
+        return mainDisplay;
+    }
 }

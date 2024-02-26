@@ -2,6 +2,7 @@ package gui;
 
 import gui.components.EndGamePanel;
 import models.Player;
+import utils.EndGameCriteria;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +39,16 @@ public class EndGameDisplay extends JLayeredPane {
         label.setBounds(xLabel, yLabel, labelWidth, labelHeight);
         add(label, JLayeredPane.PALETTE_LAYER); // Add to the highest layer
 
-        JLabel winner = new JLabel("You lost!");
+        String didPlayerWin;
+        System.out.println("Player won: " + player.isPlayerWon());
+        if(player.isPlayerWon()) {
+            didPlayerWin = "You Won";
+            System.out.println("Player won: " + player.isPlayerWon());
+        } else {
+            didPlayerWin = "You Lost";
+            System.out.println("Player won: " + player.isPlayerWon());
+        }
+        JLabel winner = new JLabel(didPlayerWin);
         winner.setFont(new Font("Arial", Font.BOLD, 80));
         winner.setForeground(Color.WHITE);
 
