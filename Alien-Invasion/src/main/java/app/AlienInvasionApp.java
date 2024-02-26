@@ -30,7 +30,7 @@ public class AlienInvasionApp  {
         Scanner scan = new Scanner(System.in);
         TitleScreen.displayAsciiArt("./static/title.txt");
 
-        mainDisplay.showMainDisplay(player, this); // THIS SHOWS THE GUI
+        mainDisplay.showMainDisplay(player); // THIS SHOWS THE GUI
 
         if (NewGame.gameStart()) {
             UtilFunctions.clear();

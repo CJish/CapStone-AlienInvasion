@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 public class TimerPanel extends AbstractPanelCreator {
 
-    private static int secondsRemaining = 400000; // set to whatever you want the time limit to be
+    private static int secondsRemaining = 360; // set to whatever you want the time limit to be
 
     private static boolean isTimeZero = false;
     private final MainDisplay mainDisplay;
@@ -64,11 +64,11 @@ public class TimerPanel extends AbstractPanelCreator {
                         isTimeZero = true;
                         timerLabel.setText("Time's up!");
                         JOptionPane.showMessageDialog(timerLabel, "Time's up!");
-                        mainDisplay.showEndGameDisplay();
+                        mainDisplay.showEndGameDisplay(player, false);
                     });
                 }
             }
-        }, 0, 20); // period = time in milliseconds between ticks
+        }, 0, 1000); // period = time in milliseconds between ticks
 
         setVisible(true);
 

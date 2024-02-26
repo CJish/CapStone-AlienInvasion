@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class EndGameDisplay extends JLayeredPane {
-    public EndGameDisplay(Player player) {
+    public EndGameDisplay(Player player, boolean playerwon) {
         setPreferredSize(new Dimension(1229, 1034));
         setBackground(Color.BLACK);
         setFocusable(true);
-        initializeComponents(player);
+        initializeComponents(player, playerwon);
     }
 
-    private void initializeComponents(Player player) {
+    private void initializeComponents(Player player, boolean playerwon) {
         setLayout(null); // We'll use absolute positioning
 
         // Background panel
@@ -41,7 +41,7 @@ public class EndGameDisplay extends JLayeredPane {
 
         String didPlayerWin;
         System.out.println("Player won: " + player.isPlayerWon());
-        if(player.isPlayerWon()) {
+        if(playerwon) {
             didPlayerWin = "You Won";
             System.out.println("Player won: " + player.isPlayerWon());
         } else {
