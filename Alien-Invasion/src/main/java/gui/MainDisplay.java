@@ -37,10 +37,7 @@ public class MainDisplay extends JFrame implements KeyListener {
         add(layeredPane, BorderLayout.CENTER);
 
         JButton button = new JButton("Click or Press [ENTER]");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                clearTitleLoadGame();
-            }});
+        button.addActionListener(e -> clearTitleLoadGame());
 
         button.addKeyListener(this);
 

@@ -1,16 +1,10 @@
 package gui;
 
-import gameEngines.JsonReader;
 import gui.components.*;
-import models.Location;
 import models.Player;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 
 public class GameDisplay extends JLayeredPane {
 

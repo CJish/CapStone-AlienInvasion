@@ -26,13 +26,10 @@ public class UserInputPanel extends AbstractPanelCreator {
         JTextField userInput = new JTextField();
         userInput.setColumns(20); // Customize column size as needed
 
-        userInput.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String userText = userInput.getText();
-                TextParser.textParser(userText, player);
-                userInput.setText("");
-            }
+        userInput.addActionListener(e -> {
+            String userText = userInput.getText();
+            TextParser.textParser(userText, player);
+            userInput.setText("");
         });
 
         panel.add(userInput, BorderLayout.CENTER);
