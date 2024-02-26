@@ -4,7 +4,7 @@
     "description": "As you step through the entrance, you are greeted by a room bustling with activity.\n The entire eastern wall is lined with an array of high-tech decryption equipment. These sophisticated machines hum with activity, ensuring the secure and encrypted communication of the starship's data.",
     "x": 0,
     "y": 0,
-    "items": ["goo", "pencil", "vial-of-toxic-gas"],
+    "items": ["goo", "pencil", "toxic-gas"],
     "characters": ["SPACE-MARINE", "CAPTAIN-PIKEMAN"]
   },
   {
@@ -36,6 +36,6 @@
     "description" : "The room is full of large industrial fans that circulate the breathable air all through out the TLG Alactica. It is a critical part of the ship!",
     "x" : 28,
     "y" : 42,
-    "items" : ["protective-vent-cover"]
+    "items" : ["vent-cover"]
   }
 ]
