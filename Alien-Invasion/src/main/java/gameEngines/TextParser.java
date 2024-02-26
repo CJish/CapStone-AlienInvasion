@@ -34,8 +34,6 @@ public class TextParser {
         String verb = JsonReader.readVerbJson(commands);
         String noun = JsonReader.readNounJson(commands);
 
-        System.out.println("Verb: " + verb);
-        System.out.println("Noun: " + noun);
         if (cmd.length > 1 && noun != null) {
             if (userInput.trim().equalsIgnoreCase("display inventory")) {
                 System.out.println(player.getPlayerInventory());

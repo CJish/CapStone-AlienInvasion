@@ -23,9 +23,9 @@ public class MainDisplay extends JFrame implements KeyListener {
     private static EndGameDisplay endGameDisplay;
 
     // This is now the main class for the GUI, all child classes and methods should be appended here while we separate and update the game
-    public void showMainDisplay(Player player, AlienInvasionApp app) throws IOException {
+    public void showMainDisplay(Player player) throws IOException {
         gameDisplay = new GameDisplay(player, this);
-        endGameDisplay = new EndGameDisplay(player);
+        endGameDisplay = new EndGameDisplay(player, player.isPlayerWon());
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BufferedImage alienSoldierBufferedImg = ImageIO.read(new File("static/alienSoldier.jpg"));
@@ -70,9 +70,9 @@ public class MainDisplay extends JFrame implements KeyListener {
         repaint();
     }
 
-    public void showEndGameDisplay() {
+    public void showEndGameDisplay(Player player, boolean playerwon) {
         this.getContentPane().removeAll();
-        this.getContentPane().add(endGameDisplay);
+        this.getContentPane().add(new EndGameDisplay(player, playerwon));
         this.revalidate();
         this.repaint();
     }
