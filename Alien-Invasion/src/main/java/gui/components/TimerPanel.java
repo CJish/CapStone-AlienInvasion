@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 public class TimerPanel extends AbstractPanelCreator {
 
-    private static int secondsRemaining = 400; // set to whatever you want the time limit to be
+    private static int secondsRemaining = 360; // set to whatever you want the time limit to be
 
     private static boolean isTimeZero = false;
     private final MainDisplay mainDisplay;
@@ -68,7 +68,7 @@ public class TimerPanel extends AbstractPanelCreator {
                     });
                 }
             }
-        }, 0, 20); // period = time in milliseconds between ticks
+        }, 0, 1000); // period = time in milliseconds between ticks
 
         setVisible(true);
 
