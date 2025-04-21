@@ -1,6 +1,6 @@
 # Team 1 Capstone
 ## Collaborators
-Titus (greenspaceman22), Tyler (SSPENELOPE), and me (CJish)
+[Titus(https://github.com/GreenSpaceman22)], [Tyler(https://github.com/sspenelope)], and me (CJish)
 
 ### Description
 This is the final result of our capstone project. We inherited the code for an unfinished text-based game from another team, and we had 3 x three-day sprints to refactor and add new features.
